@@ -16,3 +16,7 @@ Faire atenttion a vérifier si la route est en GET, PUT ou POST
 - ex requete get : return this.api.get('/patients/account/patients/');
 - ex requete post : return this.api.post(...);
 - ex requete put: return this.api.put(...);
+
+##LANCER L'APP DANS UN BROWSER
+
+- ionic serve
