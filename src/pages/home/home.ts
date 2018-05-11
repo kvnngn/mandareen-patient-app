@@ -17,7 +17,10 @@ export class HomePage {
 
     getPatients() {
         this.patientCtrl.getPatients().subscribe(
-            (patient) => {this.patient = patient;},
+            (patient) => {
+                this.patient = patient;
+                console.log(this.patient);
+            },
             (err) => {return console.log(err);}
         );
     }
