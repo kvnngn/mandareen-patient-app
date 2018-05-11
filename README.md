@@ -13,6 +13,6 @@ Par exemple la route permettant de récupérer "tous les patients" se trouve dan
 ! A SAVOIR ! LES DIFFERENTES REQUETES HTTP VERS l'API
 
 Faire atenttion a vérifier si la route est en GET, PUT ou POST
-- ex get : return this.api.get('/patients/account/patients/');
-- ex : return this.api.post(...);
-- ex : return this.api.put(...);
+- ex requete get : return this.api.get('/patients/account/patients/');
+- ex requete post : return this.api.post(...);
+- ex requete put: return this.api.put(...);
