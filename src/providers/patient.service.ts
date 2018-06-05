@@ -18,4 +18,11 @@ export class PatientService {
     	};
     	return this.api.post('/patient/login/', data);
     }
+
+    patientDiary(content) {
+        let data = {
+            'content': content
+        }
+        return this.api.post('/patient/diary/', data);
+    }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { RegisterPage } from '../register/register';
+import { AccueilPage } from '../accueil/accueil';
 import { PatientService } from '../../providers/patient.service';
 
 @Component({
@@ -27,14 +27,12 @@ export class HomePage {
         this.patientCtrl.patientLogin(this.username, this.password).subscribe(
             (patientFound) => {
                 this.patient = patientFound;
-                console.log(this.patient);
+                console.log("Here : " + this.patient);
+                this.navCtrl.setRoot(AccueilPage);
             },
             (err) => {return console.log(err);
         })
-    }
-
-    goRegister() {
-        this.navCtrl.push(RegisterPage);
+        console.log("Out of it");
     }
 
     getPatients() {
