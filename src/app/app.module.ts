@@ -11,12 +11,26 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AccueilPage } from '../pages/accueil/accueil';
+import { JournalPage } from '../pages/journal/journal';
+import { RecettesPage } from '../pages/recettes/recettes';
+import { MusiquePage } from '../pages/musique/musique';
+import { JeuxPage } from '../pages/jeux/jeux';
+import { ContactPage } from '../pages/contact/contact';
+import { ReglagesPage } from '../pages/reglages/reglages';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    AccueilPage,
+    JournalPage,
+    RecettesPage,
+    MusiquePage,
+    JeuxPage,
+    ContactPage,
+    ReglagesPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +41,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    AccueilPage,
+    JournalPage,
+    RecettesPage,
+    MusiquePage,
+    JeuxPage,
+    ContactPage,
+    ReglagesPage
   ],
   providers: [
     StatusBar,

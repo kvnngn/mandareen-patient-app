@@ -10,4 +10,19 @@ export class PatientService {
     getPatients() {
         return this.api.get('/patients/account/patients/');
     }
+
+    patientLogin(email, password) {
+    	let data = {
+    		'email': email,
+    		'password': password
+    	};
+    	return this.api.post('/patient/login/', data);
+    }
+
+    patientDiary(content) {
+        let data = {
+            'content': content
+        }
+        return this.api.post('/patient/diary/', data);
+    }
 }
