@@ -25696,9 +25696,15 @@ page-accueil div {
 }
 
 page-accueil .magic {
-  margin-top: 5em;
+  margin-top: 4em;
   font-size: 18px;
   font-weight: 500;
+}
+
+page-accueil li {
+  text-align: left;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 page-home img {
