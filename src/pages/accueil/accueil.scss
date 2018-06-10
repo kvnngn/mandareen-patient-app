@@ -1,3 +1,14 @@
 page-accueil {
-
+  h1 {
+    color: color($colors, primary);
+  }
+  div {
+    text-align: center;
+    color: color($colors, dark);
+  }
+  .magic {
+    margin-top: 5em;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }
