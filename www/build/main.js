@@ -120,28 +120,26 @@ var JournalPage = /** @class */ (function () {
     function JournalPage(navCtrl, patientCtrl) {
         this.navCtrl = navCtrl;
         this.patientCtrl = patientCtrl;
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(this.user);
+        this.getPatientDiaries();
     }
-    JournalPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad JournalPage');
+    JournalPage.prototype.getPatientDiaries = function () {
+        var _this = this;
+        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(function (diaries) { _this.diaries = diaries; }, function (err) { return console.log(err); });
     };
     JournalPage.prototype.diarySubmit = function () {
         var _this = this;
-        console.log(this.content);
-        this.patientCtrl.patientDiary(this.content).subscribe(function (patientFound) {
-            _this.patient = patientFound;
-            console.log("Response : " + _this.patient.message);
-        }, function (err) {
-            return console.log(err);
-        });
+        this.patientCtrl.sendPatientDiary(this.content, this.user.patient.id).subscribe(function () { _this.getPatientDiaries(); }, function (err) { return console.log(err); });
     };
     JournalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-journal',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/'<!--\n\n  Generated template for the JournalPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Journal</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n      <ion-item>\n\n        <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>\n\n      </ion-item>\n\n      <button ion-button block outline (click)="diarySubmit()">Valider</button>\n\n</ion-content>\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Journal</ion-title>\n\n  </ion-navbar>\n\n</ion-header>'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/,
+            selector: 'page-journal',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-card *ngFor="let diary of diaries">\n\n    <ion-card-header>\n\n        {{diary.creation_date}}\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n        {{diary.content}}\n\n    </ion-card-content>\n\n</ion-card>\n\n\n\n<ion-content padding>\n\n    <ion-item>\n\n        <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>\n\n    </ion-item>\n\n    <button ion-button block outline (click)="diarySubmit()">Envoyer</button>\n\n</ion-content>\n\n<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object])
     ], JournalPage);
     return JournalPage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=journal.js.map
@@ -398,29 +396,20 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.login = function () {
         var _this = this;
         this.patientCtrl.patientLogin(this.username, this.password).subscribe(function (patientFound) {
-            _this.patient = patientFound;
-            console.log("Here : " + _this.patient);
+            localStorage.setItem('currentUser', JSON.stringify(patientFound));
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__accueil_accueil__["a" /* AccueilPage */]);
         }, function (err) {
             return console.log(err);
         });
     };
-    HomePage.prototype.getPatients = function () {
-        var _this = this;
-        console.log("here : " + this.patient);
-        this.patientCtrl.getPatients().subscribe(function (patient) {
-            _this.patient = patient;
-            console.log(_this.patient);
-        }, function (err) { return console.log(err); });
-    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\home\home.html"*/'<ion-content style="background-image: url(\'../assets/imgs/background.png\');">\n\n  <ion-card>\n\n    <ion-card-header>\n\n      <h1><img src="../assets/imgs/mandareen-logo.png" border="0" align="absmiddle">Mandareen</h1>\n\n      Connexion\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      <ion-list no-line>\n\n        <ion-item>\n\n          <ion-input type="text" placeholder="Username" [(ngModel)]="username"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>\n\n        </ion-item>\n\n      </ion-list>\n\n      <a>Identifiants oubliés ?<b> Cliquez ici</b></a>\n\n      <button ion-button block outline color="light" (click)="login()">Connexion</button>\n\n      <!--<button ion-button full color="light" (click)="goRegister()">Inscription</button>-->\n\n    </ion-card-content>\n\n  </ion-card>\n\n'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\home\home.html"*/'<ion-content style="background-image: url(\'../assets/imgs/background.png\');">\n\n    <ion-card>\n\n        <ion-card-header>\n\n            <h1><img src="../assets/imgs/mandareen-logo.png" border="0" align="absmiddle">Mandareen</h1>\n\n            Connexion\n\n        </ion-card-header>\n\n        <ion-card-content>\n\n            <ion-list no-line>\n\n                <ion-item>\n\n                    <ion-input type="text" placeholder="Username" [(ngModel)]="username"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <ion-input type="password" placeholder="Password" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n            </ion-list>\n\n            <a>Identifiants oubliés ?<b> Cliquez ici</b></a>\n\n            <button ion-button block outline color="light" (click)="login()">Connexion</button>\n\n            <!--<button ion-button full color="light" (click)="goRegister()">Inscription</button>-->\n\n        </ion-card-content>\n\n    </ion-card>\n\n</ion-content>'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_patient_service__["a" /* PatientService */]])
     ], HomePage);
     return HomePage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -722,6 +711,8 @@ var MyApp = /** @class */ (function () {
         this.splashScreen = splashScreen;
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
         this.initializeApp();
+        // if (localStorage.getItem('currentUser')) {this.rootPage = 'AccueilPage';}
+        // else { this.rootPage = 'LoginPage';}
         // used for an example of ngFor and navigation
         this.pages = [
             { title: 'Accueil', component: __WEBPACK_IMPORTED_MODULE_6__pages_accueil_accueil__["a" /* AccueilPage */] },
@@ -833,9 +824,6 @@ var PatientService = /** @class */ (function () {
     function PatientService(api) {
         this.api = api;
     }
-    PatientService.prototype.getPatients = function () {
-        return this.api.get('/patients/account/patients/');
-    };
     PatientService.prototype.patientLogin = function (email, password) {
         var data = {
             'email': email,
@@ -843,11 +831,11 @@ var PatientService = /** @class */ (function () {
         };
         return this.api.post('/patient/login/', data);
     };
-    PatientService.prototype.patientDiary = function (content) {
-        var data = {
-            'content': content
-        };
-        return this.api.post('/patient/diary/', data);
+    PatientService.prototype.sendPatientDiary = function (content, id) {
+        return this.api.post('/patient/diary/', { content: content, id: id });
+    };
+    PatientService.prototype.getPatientDiaries = function (id) {
+        return this.api.get('/patient/diaries/' + id);
     };
     PatientService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
