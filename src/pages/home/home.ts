@@ -20,19 +20,13 @@ export class HomePage {
     }
 
     login(){
-
-        console.log("Username: " + this.username);
-        console.log("Password: " + this.password);
-
         this.patientCtrl.patientLogin(this.username, this.password).subscribe(
             (patientFound) => {
                 this.patient = patientFound;
-                console.log("Here : " + this.patient);
                 this.navCtrl.setRoot(AccueilPage);
             },
             (err) => {return console.log(err);
-        })
-        console.log("Out of it");
+        });
     }
 
     getPatients() {
