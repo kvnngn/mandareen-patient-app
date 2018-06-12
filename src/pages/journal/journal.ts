@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { PatientService } from '../../providers/patient.service';
+import {Component} from '@angular/core';
+import {IonicPage, NavController} from 'ionic-angular';
+import {PatientService} from '../../providers/patient.service';
 
 /**
  * Generated class for the JournalPage page.
@@ -11,33 +11,35 @@ import { PatientService } from '../../providers/patient.service';
 
 @IonicPage()
 @Component({
-  selector: 'page-journal',
-  templateUrl: 'journal.html',
+    selector: 'page-journal',
+    templateUrl: 'journal.html'
 })
 export class JournalPage {
 
     content: string;
-
     patient: any;
+    user;
+    diaries;
 
     constructor(public navCtrl: NavController,
                 public patientCtrl: PatientService) {
-
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(this.user);
+        this.getPatientDiaries();
     }
 
-    ionViewDidLoad() {
-      console.log('ionViewDidLoad JournalPage');
+    getPatientDiaries() {
+        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(
+            (diaries) => {this.diaries = diaries;},
+            (err) => {return console.log(err);}
+        );
     }
 
-  diarySubmit() {
-    console.log(this.content)
-  	this.patientCtrl.patientDiary(this.content).subscribe(
-            (patientFound) => {
-                this.patient = patientFound;
-                console.log("Response : " + this.patient.message);
-            },
-            (err) => {return console.log(err);
-        })
-  }
+    diarySubmit() {
+        this.patientCtrl.sendPatientDiary(this.content, this.user.patient.id).subscribe(
+            () => {this.getPatientDiaries();},
+            (err) => {return console.log(err);}
+        );
+    }
 
 }
