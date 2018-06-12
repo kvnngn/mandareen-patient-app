@@ -30,16 +30,24 @@ export class JournalPage {
 
     getPatientDiaries() {
         this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(
-            (diaries) => {this.diaries = diaries;},
+            (diaries) => {
+                console.log(diaries);
+                this.diaries = diaries;
+            },
             (err) => {return console.log(err);}
         );
     }
 
     diarySubmit() {
-        this.patientCtrl.sendPatientDiary(this.content, this.user.patient.id).subscribe(
-            () => {this.getPatientDiaries();},
-            (err) => {return console.log(err);}
-        );
+        if (this.content.length > 0) {
+            this.patientCtrl.sendPatientDiary(this.content, this.user.patient.id).subscribe(
+                () => {
+                    this.getPatientDiaries();
+                    this.content = '';
+                },
+                (err) => {return console.log(err);}
+            );
+        }
     }
 
 }

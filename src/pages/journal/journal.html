@@ -4,27 +4,19 @@
     </ion-navbar>
 </ion-header>
 
-
-<ion-card *ngFor="let diary of diaries">
-    <ion-card-header>
-        {{diary.creation_date}}
-    </ion-card-header>
-    <ion-card-content>
-        {{diary.content}}
-    </ion-card-content>
-</ion-card>
-
 <ion-content padding>
+    <ion-list *ngFor="let diary of diaries">
+        <ion-card>
+            <ion-card-header>
+                {{ diary.creation_date | date: 'dd/MM/yyyy' }}
+            </ion-card-header>
+            <ion-card-content>
+                {{ diary.content }}
+            </ion-card-content>
+        </ion-card>
+    </ion-list>
     <ion-item>
         <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>
     </ion-item>
     <button ion-button block outline (click)="diarySubmit()">Envoyer</button>
 </ion-content>
-<ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-        <ion-title>Journal</ion-title>
-    </ion-navbar>
-</ion-header>

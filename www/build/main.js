@@ -4,51 +4,6 @@ webpackJsonp([7],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the ContactPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var ContactPage = /** @class */ (function () {
-    function ContactPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    ContactPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ContactPage');
-    };
-    ContactPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\contact\contact.html"*/'<!--\n\n  Generated template for the JeuxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Nous contacter</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\nComing Soon\n\n</ion-content>\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Nous contacter</ion-title>\n\n  </ion-navbar>\n\n</ion-header>'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\contact\contact.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-    ], ContactPage);
-    return ContactPage;
-}());
-
-//# sourceMappingURL=contact.js.map
-
-/***/ }),
-
-/***/ 103:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JeuxPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
@@ -90,14 +45,13 @@ var JeuxPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 104:
+/***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JournalPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(79);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -109,44 +63,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 /**
- * Generated class for the JournalPage page.
+ * Generated class for the ContactPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var JournalPage = /** @class */ (function () {
-    function JournalPage(navCtrl, patientCtrl) {
+var ContactPage = /** @class */ (function () {
+    function ContactPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
-        this.patientCtrl = patientCtrl;
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(this.user);
-        this.getPatientDiaries();
+        this.navParams = navParams;
     }
-    JournalPage.prototype.getPatientDiaries = function () {
-        var _this = this;
-        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(function (diaries) { _this.diaries = diaries; }, function (err) { return console.log(err); });
+    ContactPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ContactPage');
     };
-    JournalPage.prototype.diarySubmit = function () {
-        var _this = this;
-        this.patientCtrl.sendPatientDiary(this.content, this.user.patient.id).subscribe(function () { _this.getPatientDiaries(); }, function (err) { return console.log(err); });
-    };
-    JournalPage = __decorate([
+    ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-journal',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-card *ngFor="let diary of diaries">\n\n    <ion-card-header>\n\n        {{diary.creation_date}}\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n        {{diary.content}}\n\n    </ion-card-content>\n\n</ion-card>\n\n\n\n<ion-content padding>\n\n    <ion-item>\n\n        <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>\n\n    </ion-item>\n\n    <button ion-button block outline (click)="diarySubmit()">Envoyer</button>\n\n</ion-content>\n\n<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n            <ion-icon name="menu"></ion-icon>\n\n        </button>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/
+            selector: 'page-contact',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\contact\contact.html"*/'<!--\n\n  Generated template for the JeuxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Nous contacter</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\nComing Soon\n\n</ion-content>\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>Nous contacter</ion-title>\n\n  </ion-navbar>\n\n</ion-header>'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\contact\contact.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object])
-    ], JournalPage);
-    return JournalPage;
-    var _a, _b;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], ContactPage);
+    return ContactPage;
 }());
 
-//# sourceMappingURL=journal.js.map
+//# sourceMappingURL=contact.js.map
 
 /***/ }),
 
-/***/ 105:
+/***/ 104:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -191,7 +135,7 @@ var MusiquePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 106:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -236,6 +180,70 @@ var RecettesPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 106:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JournalPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(79);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the JournalPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var JournalPage = /** @class */ (function () {
+    function JournalPage(navCtrl, patientCtrl) {
+        this.navCtrl = navCtrl;
+        this.patientCtrl = patientCtrl;
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(this.user);
+        this.getPatientDiaries();
+    }
+    JournalPage.prototype.getPatientDiaries = function () {
+        var _this = this;
+        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(function (diaries) {
+            console.log(diaries);
+            _this.diaries = diaries;
+        }, function (err) { return console.log(err); });
+    };
+    JournalPage.prototype.diarySubmit = function () {
+        var _this = this;
+        if (this.content.length > 0) {
+            this.patientCtrl.sendPatientDiary(this.content, this.user.patient.id).subscribe(function () {
+                _this.getPatientDiaries();
+                _this.content = '';
+            }, function (err) { return console.log(err); });
+        }
+    };
+    JournalPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-journal',template:/*ion-inline-start:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-list *ngFor="let diary of diaries">\n\n        <ion-card>\n\n            <ion-card-header>\n\n                {{ diary.creation_date | date: \'dd/MM/yyyy\' }}\n\n            </ion-card-header>\n\n            <ion-card-content>\n\n                {{ diary.content }}\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </ion-list>\n\n    <ion-item>\n\n        <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>\n\n    </ion-item>\n\n    <button ion-button block outline (click)="diarySubmit()">Envoyer</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64\www\mandareen-patient-app\src\pages\journal\journal.html"*/
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object])
+    ], JournalPage);
+    return JournalPage;
+    var _a, _b;
+}());
+
+//# sourceMappingURL=journal.js.map
+
+/***/ }),
+
 /***/ 118:
 /***/ (function(module, exports) {
 
@@ -262,23 +270,23 @@ var map = {
 		6
 	],
 	"../pages/contact/contact.module": [
-		289,
+		290,
 		5
 	],
 	"../pages/jeux/jeux.module": [
-		290,
+		289,
 		4
 	],
 	"../pages/journal/journal.module": [
-		291,
+		293,
 		3
 	],
 	"../pages/musique/musique.module": [
-		292,
+		291,
 		2
 	],
 	"../pages/recettes/recettes.module": [
-		293,
+		292,
 		1
 	],
 	"../pages/reglages/reglages.module": [
@@ -549,11 +557,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_status_bar__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_splash_screen__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_accueil_accueil__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_journal_journal__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_recettes_recettes__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_jeux_jeux__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_contact_contact__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_journal_journal__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_recettes_recettes__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_jeux_jeux__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_contact_contact__ = __webpack_require__(103);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_reglages_reglages__ = __webpack_require__(207);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -602,11 +610,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/accueil/accueil.module#AccueilPageModule', name: 'AccueilPage', segment: 'accueil', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/contact/contact.module#ContactPageModule', name: 'ContactPage', segment: 'contact', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/jeux/jeux.module#JeuxPageModule', name: 'JeuxPage', segment: 'jeux', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/journal/journal.module#JournalPageModule', name: 'JournalPage', segment: 'journal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/contact/contact.module#ContactPageModule', name: 'ContactPage', segment: 'contact', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/musique/musique.module#MusiquePageModule', name: 'MusiquePage', segment: 'musique', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/recettes/recettes.module#RecettesPageModule', name: 'RecettesPage', segment: 'recettes', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/journal/journal.module#JournalPageModule', name: 'JournalPage', segment: 'journal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reglages/reglages.module#ReglagesPageModule', name: 'ReglagesPage', segment: 'reglages', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -678,11 +686,11 @@ var ENV = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(205);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_list_list__ = __webpack_require__(206);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_accueil_accueil__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_journal_journal__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_recettes_recettes__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_musique_musique__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_jeux_jeux__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_contact_contact__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_journal_journal__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_recettes_recettes__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_musique_musique__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_jeux_jeux__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_contact_contact__ = __webpack_require__(103);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
