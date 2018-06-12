@@ -8,3 +8,5 @@ export const ENV: EnvInterface = {
     version: '0.0.1'
 
 };
+
+// origin: 'http://109.11.149.28:1234'
