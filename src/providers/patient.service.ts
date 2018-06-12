@@ -7,10 +7,6 @@ export class PatientService {
     constructor(private api: ApiService) {
     }
 
-    getPatients() {
-        return this.api.get('/patients/account/patients/');
-    }
-
     patientLogin(email, password) {
     	let data = {
     		'email': email,
@@ -19,10 +15,11 @@ export class PatientService {
     	return this.api.post('/patient/login/', data);
     }
 
-    patientDiary(content) {
-        let data = {
-            'content': content
-        }
-        return this.api.post('/patient/diary/', data);
+    sendPatientDiary(content, id) {
+        return this.api.post('/patient/diary/', {content: content, id : id});
+    }
+
+    getPatientDiaries(id) {
+        return this.api.get('/patient/diaries/' + id);
     }
 }

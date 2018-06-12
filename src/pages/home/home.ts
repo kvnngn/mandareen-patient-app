@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { AccueilPage } from '../accueil/accueil';
-import { PatientService } from '../../providers/patient.service';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {AccueilPage} from '../accueil/accueil';
+import {PatientService} from '../../providers/patient.service';
 
 @Component({
     selector: 'page-home',
@@ -9,8 +9,8 @@ import { PatientService } from '../../providers/patient.service';
 })
 export class HomePage {
 
-    username:string;
-    password:string;
+    username: string;
+    password: string;
 
     patient: any;
 
@@ -19,30 +19,15 @@ export class HomePage {
 
     }
 
-    login(){
-
-        console.log("Username: " + this.username);
-        console.log("Password: " + this.password);
-
+    login() {
         this.patientCtrl.patientLogin(this.username, this.password).subscribe(
             (patientFound) => {
-                this.patient = patientFound;
-                console.log("Here : " + this.patient);
+                localStorage.setItem('currentUser', JSON.stringify(patientFound));
                 this.navCtrl.setRoot(AccueilPage);
             },
-            (err) => {return console.log(err);
-        })
-        console.log("Out of it");
-    }
-
-    getPatients() {
-        console.log("here : " + this.patient);
-        this.patientCtrl.getPatients().subscribe(
-            (patient) => {
-                this.patient = patient;
-                console.log(this.patient);
-            },
-            (err) => {return console.log(err);}
+            (err) => {
+                return console.log(err);
+            }
         );
     }
 }
