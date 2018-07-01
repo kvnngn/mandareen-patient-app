@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { GlobalProvider } from '../../providers/global/global';
 /**
  * Generated class for the AccueilPage page.
  *

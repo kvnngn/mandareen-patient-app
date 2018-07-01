@@ -14,7 +14,13 @@
 
 
 <ion-content padding>
-Coming soon
+  <ion-label fixed>Email : </ion-label>
+        <ion-input type="text" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})" value="{{ user.patient.email }}" [(ngModel)]="email"></ion-input>
+        <button ion-button block outline color="dark" (click)="changeEmail()">Modifier</button>
+  <ion-label fixed>Nom : </ion-label>
+        <ion-input type="text" value="{{ user.patient.lastname }}" [(ngModel)]="lastname"></ion-input>
+  <ion-label fixed>Prénom : </ion-label>
+        <ion-input type="text" value="{{ user.patient.firstname }}" [(ngModel)]="firstname"></ion-input>
 </ion-content>
 <ion-header>
   <ion-navbar>

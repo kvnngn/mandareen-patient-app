@@ -18,6 +18,7 @@ import { MusiquePage } from '../pages/musique/musique';
 import { JeuxPage } from '../pages/jeux/jeux';
 import { ContactPage } from '../pages/contact/contact';
 import { ReglagesPage } from '../pages/reglages/reglages';
+import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ReglagesPage } from '../pages/reglages/reglages';
     SplashScreen,
     PatientService,
     ApiService,
-      {provide: ErrorHandler, useClass: IonicErrorHandler}
+      {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalProvider,
   ]
 })
 export class AppModule {}

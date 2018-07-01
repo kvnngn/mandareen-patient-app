@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AccueilPage } from '../pages/accueil/accueil';
 import { JournalPage } from '../pages/journal/journal';
 import { RecettesPage } from '../pages/recettes/recettes';
@@ -37,7 +36,7 @@ export class MyApp {
       { title: 'Musique', component: MusiquePage },
       { title: 'Jeux', component: JeuxPage },
       { title: 'Nous Contacter', component: ContactPage },
-      { title: 'Test', component: ListPage },
+      { title: 'Réglages', component: ReglagesPage },
     ];
 
   }

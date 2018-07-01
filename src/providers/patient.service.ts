@@ -22,4 +22,12 @@ export class PatientService {
     getPatientDiaries(id) {
         return this.api.get('/patient/diaries/' + id);
     }
+
+    changeEmail(id, newEmail) {
+        let data = {
+            'id': id,
+            'newEmail': newEmail
+        };
+        return this.api.post('/patient/changeEmail/', data);
+    }
 }
