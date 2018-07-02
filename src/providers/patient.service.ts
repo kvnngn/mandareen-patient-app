@@ -7,14 +7,6 @@ export class PatientService {
     constructor(private api: ApiService) {
     }
 
-    patientLogin(email, password) {
-    	let data = {
-    		'email': email,
-    		'password': password
-    	};
-    	return this.api.post('/patient/login/', data);
-    }
-
     sendPatientDiary(content, id) {
         return this.api.post('/patient/diary/', {content: content, id : id});
     }

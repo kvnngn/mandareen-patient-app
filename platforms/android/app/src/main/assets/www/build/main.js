@@ -633,7 +633,7 @@ var AppModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["I" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_accueil_accueil__["a" /* AccueilPage */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_journal_journal__["a" /* JournalPage */],
@@ -661,7 +661,7 @@ var AppModule = /** @class */ (function () {
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* LoginPage */],
                 __WEBPACK_IMPORTED_MODULE_8__pages_list_list__["a" /* ListPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_accueil_accueil__["a" /* AccueilPage */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_journal_journal__["a" /* JournalPage */],
@@ -756,7 +756,7 @@ var MyApp = /** @class */ (function () {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* LoginPage */];
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [

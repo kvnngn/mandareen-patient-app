@@ -2,11 +2,11 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import {ApiService} from '../providers';
-import {PatientService} from '../providers/patient.service';
+import {LoginPage} from '../pages/login/login';
+import {ApiService, AuthService} from '../providers';
+import {PatientService} from '../providers';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -23,7 +23,7 @@ import { GlobalProvider } from '../providers/global/global';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    LoginPage,
     ListPage,
     AccueilPage,
     JournalPage,
@@ -41,7 +41,7 @@ import { GlobalProvider } from '../providers/global/global';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    LoginPage,
     ListPage,
     AccueilPage,
     JournalPage,
@@ -56,6 +56,7 @@ import { GlobalProvider } from '../providers/global/global';
     SplashScreen,
     PatientService,
     ApiService,
+    AuthService,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalProvider,
   ]
