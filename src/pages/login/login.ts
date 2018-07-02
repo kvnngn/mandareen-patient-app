@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {AuthService} from '../../providers';
+import {AuthService, Toast} from '../../providers';
 import {AccueilPage} from '../accueil/accueil';
 
 @Component({
@@ -15,7 +15,8 @@ export class LoginPage {
     patient: any;
 
     constructor(public navCtrl: NavController,
-                public auth: AuthService) {}
+                public auth: AuthService,
+                private toastCtrl: Toast) {}
 
     login() {
         this.auth.signin(this.username, this.password).subscribe(
@@ -24,7 +25,20 @@ export class LoginPage {
                 this.navCtrl.setRoot(AccueilPage);
             },
             (err) => {
-                // !******** Faire apparaître popup erreur **********! //
+                console.log(err);
+                let msg = err.error.error;
+                if (msg == 'User not found') {
+                    this.toastCtrl.create('Aucun compte n\'est associé à cette adresse mail',
+                        false,
+                        'top'
+                    );
+                }
+                if (msg == 'invalid password') {
+                    this.toastCtrl.create('Mot de passe incorrect',
+                        false,
+                        'top'
+                    );
+                }
                 return console.log(err);
             }
         );

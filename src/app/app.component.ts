@@ -11,7 +11,7 @@ import {MusiquePage} from '../pages/musique/musique';
 import {JeuxPage} from '../pages/jeux/jeux';
 import {ContactPage} from '../pages/contact/contact';
 import {ReglagesPage} from '../pages/reglages/reglages';
-import {AuthService} from '../providers';
+import {AuthService, Toast} from '../providers';
 
 @Component({
     templateUrl: 'app.html'
@@ -27,7 +27,8 @@ export class MyApp {
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
                 public appCtrl: App,
-                public auth: AuthService) {
+                public auth: AuthService,
+                private toastCtrl: Toast) {
         this.initializeApp();
 
         // if (localStorage.getItem('currentUser')) {this.rootPage = 'AccueilPage';}
@@ -64,5 +65,9 @@ export class MyApp {
     logOutClicked() {
         this.auth.logOut();
         this.appCtrl.getRootNav().setRoot(LoginPage);
+        this.toastCtrl.create('Vous vous êtes déconnecté.',
+            false,
+            'top'
+        );
     }
 }

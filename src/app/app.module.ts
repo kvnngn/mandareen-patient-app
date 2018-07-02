@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import {LoginPage} from '../pages/login/login';
 import {ApiService, AuthService} from '../providers';
 import {PatientService} from '../providers';
+import {Toast} from '../providers';
 
 import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
@@ -57,6 +58,7 @@ import { GlobalProvider } from '../providers/global/global';
     PatientService,
     ApiService,
     AuthService,
+    Toast,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
     GlobalProvider,
   ]
