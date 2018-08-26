@@ -12,14 +12,41 @@
         <ion-card>
             <ion-card-header>
                 {{ diary.creation_date | date: 'dd/MM/yyyy' }}
+                {{ diary.humeur }}
             </ion-card-header>
             <ion-card-content>
                 {{ diary.content }}
             </ion-card-content>
         </ion-card>
     </ion-list>
+
     <ion-item>
         <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>
     </ion-item>
+
+    <ion-row>
+            <ion-col col>
+                <!--<button id="1" #first ion-button border-color="dark" [ngStyle]="{'background-color': buttonColor}" (click)="btnActivate(first)"><ion-icon name="heart"></ion-icon></button>-->
+                <button #love class="mood-button" (click)="loveMood(love)" ion-button small round icon-only><ion-icon name="heart"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #fun class="mood-button" (click)="funMood(fun)" ion-button small round icon-only><ion-icon name="game-controller-a"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #happy class="mood-button" (click)="happyMood(happy)" ion-button small round icon-only><ion-icon name="happy"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #sad class="mood-button" (click)="sadMood(sad)" ion-button small round icon-only><ion-icon name="sad"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #disgust class="mood-button" (click)="disgustMood(disgust)" ion-button small round icon-only><ion-icon name="wine"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #fear class="mood-button" (click)="fearMood(fear)" ion-button small round icon-only><ion-icon name="outlet"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #anger class="mood-button" (click)="angerMood(anger)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>
+            </ion-col>
+      </ion-row>
     <button ion-button block outline (click)="diarySubmit()">Envoyer</button>
 </ion-content>
