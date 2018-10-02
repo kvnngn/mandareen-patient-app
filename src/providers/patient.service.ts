@@ -7,8 +7,8 @@ export class PatientService {
     constructor(private api: ApiService) {
     }
 
-    sendPatientDiary(content, humeur, id) {
-        return this.api.post('/patient/diary/', {content: content, id : id, humeur : humeur});
+    sendPatientDiary(content, mood, id) {
+        return this.api.post('/patient/diary/', {content: content, id : id, mood : mood});
     }
 
     getPatientDiaries(id) {

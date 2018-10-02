@@ -18,7 +18,7 @@ import {Toast} from '../../providers';
 export class JournalPage {
 
     content: string;
-    mood: string;
+    mood: number;
     patient: any;
     user;
     diaries;
@@ -32,92 +32,91 @@ export class JournalPage {
     }
 
     happyMood(ionicButton) {
-        if (this.mood === "happy") {
+        if (this.mood === 1) {
             this.mood = "";
             ionicButton._color = "primary";
         }
         else {
-            this.mood = "happy";
-            this.buttonColor = "dark";
+            this.mood = 1;
+            //this.buttonColor = "dark";
             ionicButton._color = 'orange';
         }
         console.log(this.mood);
     }
 
     sadMood(ionicButton) {
-        if (this.mood === "sad") {
+        if (this.mood === 2) {
             this.mood = "";
             ionicButton._color = "primary";
         }
         else {
-            this.mood = "sad";
-            this.buttonColor = "dark";
-            ionicButton._color = 'orange';
+            this.mood = 2;
+            //this.buttonColor = 'dark';
+            ionicButton._color = 'dark';
+        }
+        console.log(this.mood);
+    }
+
+    angerMood(ionicButton) {
+        if (this.mood === 3) {
+            this.mood = "";
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 3;
+            ionicButton._color = 'black';
         }
         console.log(this.mood);
     }
 
     disgustMood(ionicButton) {
-        if (this.mood === "disgust") {
+        if (this.mood === 4) {
             this.mood = "";
             ionicButton._color = "primary";
         }
         else {
-            this.mood = "disgust";
-            this.buttonColor = "dark";
+            this.mood = 4;
+            //this.buttonColor = "dark";
             ionicButton._color = 'orange';
         }
         console.log(this.mood);
     }
 
     fearMood(ionicButton) {
-        if (this.mood === "fear") {
+        if (this.mood === 5) {
             this.mood = "";
             ionicButton._color = "primary";
         }
         else {
-            this.mood = "fear";
-            this.buttonColor = "dark";
+            this.mood = 5;
+            //this.buttonColor = "dark";
             ionicButton._color = 'orange';
         }
         console.log(this.mood);
     }
 
-    loveMood(ionicButton) {
-        if (this.mood === "love") {
+    surpriseMood(ionicButton) {
+        if (this.mood === 6) {
             this.mood = "";
             ionicButton._color = "primary";
         }
         else {
-            this.mood = "love";
-            this.buttonColor = "dark";
-            ionicButton._color = 'orange';
+            this.mood = 6;
+            //this.buttonColor = 'dark';
+            ionicButton._color = 'dark';
         }
         console.log(this.mood);
     }
 
-    funMood(ionicButton) {
-        if (this.mood === "fun") {
+    dispiseMood(ionicButton) {
+        if (this.mood === 7) {
             this.mood = "";
             ionicButton._color = "primary";
         }
         else {
-            this.mood = "fun";
-            this.buttonColor = "dark";
+            this.mood = 7;
+            //this.buttonColor = "dark";
             ionicButton._color = 'orange';
-        }
-        console.log(this.mood);
-    }
-
-    angerMood(ionicButton) {
-        if (this.mood === "anger") {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            console.log("else");
-            this.mood = "anger";
-            ionicButton._color = 'black';
         }
         console.log(this.mood);
     }

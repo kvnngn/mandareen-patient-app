@@ -26,17 +26,13 @@
 
     <ion-row>
             <ion-col col>
-                <!--<button id="1" #first ion-button border-color="dark" [ngStyle]="{'background-color': buttonColor}" (click)="btnActivate(first)"><ion-icon name="heart"></ion-icon></button>-->
-                <button #love class="mood-button" (click)="loveMood(love)" ion-button small round icon-only><ion-icon name="heart"></ion-icon></button>
+                <button #happy [color]="buttonColor" class="mood-button" (click)="happyMood(happy)" ion-button small round icon-only><ion-icon name="happy"></ion-icon></button>
             </ion-col>
             <ion-col col>
-                <button #fun class="mood-button" (click)="funMood(fun)" ion-button small round icon-only><ion-icon name="game-controller-a"></ion-icon></button>
+                <button #sad [color]="buttonColor" class="mood-button" (click)="sadMood(sad)" ion-button small round icon-only><ion-icon name="sad"></ion-icon></button>
             </ion-col>
             <ion-col col>
-                <button #happy class="mood-button" (click)="happyMood(happy)" ion-button small round icon-only><ion-icon name="happy"></ion-icon></button>
-            </ion-col>
-            <ion-col col>
-                <button #sad class="mood-button" (click)="sadMood(sad)" ion-button small round icon-only><ion-icon name="sad"></ion-icon></button>
+                <button #anger class="mood-button" (click)="angerMood(anger)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>
             </ion-col>
             <ion-col col>
                 <button #disgust class="mood-button" (click)="disgustMood(disgust)" ion-button small round icon-only><ion-icon name="wine"></ion-icon></button>
@@ -45,7 +41,10 @@
                 <button #fear class="mood-button" (click)="fearMood(fear)" ion-button small round icon-only><ion-icon name="outlet"></ion-icon></button>
             </ion-col>
             <ion-col col>
-                <button #anger class="mood-button" (click)="angerMood(anger)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>
+                <button #surprise class="mood-button" (click)="surpriseMood(surprise)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>
+            </ion-col>
+            <ion-col col>
+                <button #dispise class="mood-button" (click)="dispiseMood(surprise)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>
             </ion-col>
       </ion-row>
     <button ion-button block outline (click)="diarySubmit()">Envoyer</button>
