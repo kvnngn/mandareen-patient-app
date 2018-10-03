@@ -33,7 +33,7 @@ export class JournalPage {
 
     happyMood(ionicButton) {
         if (this.mood === 1) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
@@ -46,7 +46,7 @@ export class JournalPage {
 
     sadMood(ionicButton) {
         if (this.mood === 2) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
@@ -59,7 +59,7 @@ export class JournalPage {
 
     angerMood(ionicButton) {
         if (this.mood === 3) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
@@ -71,7 +71,7 @@ export class JournalPage {
 
     disgustMood(ionicButton) {
         if (this.mood === 4) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
@@ -84,7 +84,7 @@ export class JournalPage {
 
     fearMood(ionicButton) {
         if (this.mood === 5) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
@@ -97,7 +97,7 @@ export class JournalPage {
 
     surpriseMood(ionicButton) {
         if (this.mood === 6) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
@@ -110,7 +110,7 @@ export class JournalPage {
 
     dispiseMood(ionicButton) {
         if (this.mood === 7) {
-            this.mood = "";
+            this.mood = 0;
             ionicButton._color = "primary";
         }
         else {
