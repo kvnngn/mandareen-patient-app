@@ -1,62 +1,13 @@
-webpackJsonp([7],{
-
-/***/ 118:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PatientService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(120);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var PatientService = /** @class */ (function () {
-    function PatientService(api) {
-        this.api = api;
-    }
-    PatientService.prototype.sendPatientDiary = function (content, mood, id) {
-        return this.api.post('/patient/diary/', { content: content, id: id, mood: mood });
-    };
-    PatientService.prototype.getPatientDiaries = function (id) {
-        return this.api.get('/patient/diaries/' + id);
-    };
-    PatientService.prototype.changeEmail = function (id, newEmail) {
-        var data = {
-            'id': id,
-            'newEmail': newEmail
-        };
-        return this.api.post('/patient/changeEmail/', data);
-    };
-    PatientService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]])
-    ], PatientService);
-    return PatientService;
-}());
-
-//# sourceMappingURL=patient.service.js.map
-
-/***/ }),
+webpackJsonp([8],{
 
 /***/ 120:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApiService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__env__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__env__ = __webpack_require__(380);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,10 +54,10 @@ var ApiService = /** @class */ (function () {
     };
     ApiService = ApiService_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], ApiService);
     return ApiService;
-    var ApiService_1;
+    var ApiService_1, _a;
 }());
 
 //# sourceMappingURL=api.service.js.map
@@ -119,7 +70,7 @@ var ApiService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -162,164 +113,9 @@ var ContactPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JournalPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(118);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers__ = __webpack_require__(44);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the JournalPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var JournalPage = /** @class */ (function () {
-    function JournalPage(navCtrl, patientCtrl, toastCtrl) {
-        this.navCtrl = navCtrl;
-        this.patientCtrl = patientCtrl;
-        this.toastCtrl = toastCtrl;
-        this.user = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(this.user);
-        this.getPatientDiaries();
-    }
-    JournalPage.prototype.happyMood = function (ionicButton) {
-        if (this.mood === 1) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 1;
-            //this.buttonColor = "dark";
-            ionicButton._color = 'orange';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.sadMood = function (ionicButton) {
-        if (this.mood === 2) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 2;
-            //this.buttonColor = 'dark';
-            ionicButton._color = 'dark';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.angerMood = function (ionicButton) {
-        if (this.mood === 3) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 3;
-            ionicButton._color = 'black';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.disgustMood = function (ionicButton) {
-        if (this.mood === 4) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 4;
-            //this.buttonColor = "dark";
-            ionicButton._color = 'orange';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.fearMood = function (ionicButton) {
-        if (this.mood === 5) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 5;
-            //this.buttonColor = "dark";
-            ionicButton._color = 'orange';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.surpriseMood = function (ionicButton) {
-        if (this.mood === 6) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 6;
-            //this.buttonColor = 'dark';
-            ionicButton._color = 'dark';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.dispiseMood = function (ionicButton) {
-        if (this.mood === 7) {
-            this.mood = "";
-            ionicButton._color = "primary";
-        }
-        else {
-            this.mood = 7;
-            //this.buttonColor = "dark";
-            ionicButton._color = 'orange';
-        }
-        console.log(this.mood);
-    };
-    JournalPage.prototype.getPatientDiaries = function () {
-        var _this = this;
-        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(function (diaries) {
-            console.log(diaries);
-            _this.diaries = diaries;
-        }, function (err) { return console.log(err); });
-    };
-    JournalPage.prototype.diarySubmit = function () {
-        var _this = this;
-        if (this.content) {
-            console.log(this.mood);
-            console.log(this.content);
-            this.patientCtrl.sendPatientDiary(this.content, this.mood, this.user.patient.id).subscribe(function () {
-                _this.getPatientDiaries();
-                _this.content = '';
-            }, function (err) { return console.log(err); });
-        }
-        else {
-            this.toastCtrl.create('Le contenu du journal ne peut pas être envoyé vide', false, 'top');
-        }
-    };
-    JournalPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-journal',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\journal\journal.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-list *ngFor="let diary of diaries">\n\n        <ion-card>\n\n            <ion-card-header>\n\n                {{ diary.creation_date | date: \'dd/MM/yyyy\' }}\n\n                {{ diary.humeur }}\n\n            </ion-card-header>\n\n            <ion-card-content>\n\n                {{ diary.content }}\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </ion-list>\n\n\n\n    <ion-item>\n\n        <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <ion-row>\n\n            <ion-col col>\n\n                <button #happy [color]="buttonColor" class="mood-button" (click)="happyMood(happy)" ion-button small round icon-only><ion-icon name="happy"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #sad [color]="buttonColor" class="mood-button" (click)="sadMood(sad)" ion-button small round icon-only><ion-icon name="sad"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #anger class="mood-button" (click)="angerMood(anger)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #disgust class="mood-button" (click)="disgustMood(disgust)" ion-button small round icon-only><ion-icon name="wine"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #fear class="mood-button" (click)="fearMood(fear)" ion-button small round icon-only><ion-icon name="outlet"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #surprise class="mood-button" (click)="surpriseMood(surprise)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #dispise class="mood-button" (click)="dispiseMood(surprise)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>\n\n            </ion-col>\n\n      </ion-row>\n\n    <button ion-button block outline (click)="diarySubmit()">Envoyer</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\journal\journal.html"*/
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers__["d" /* Toast */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers__["d" /* Toast */]) === "function" && _c || Object])
-    ], JournalPage);
-    return JournalPage;
-    var _a, _b, _c;
-}());
-
-//# sourceMappingURL=journal.js.map
-
-/***/ }),
-
-/***/ 156:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JeuxPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -358,13 +154,15 @@ var JeuxPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 157:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecettesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JournalPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -376,30 +174,197 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 /**
- * Generated class for the RecettesPage page.
+ * Generated class for the JournalPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var RecettesPage = /** @class */ (function () {
-    function RecettesPage(navCtrl, navParams) {
+var JournalPage = /** @class */ (function () {
+    function JournalPage(navCtrl, patientCtrl, toastCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.patientCtrl = patientCtrl;
+        this.toastCtrl = toastCtrl;
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        this.getPatientDiaries();
     }
-    RecettesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RecettesPage');
+    JournalPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad JournalPage');
     };
-    RecettesPage = __decorate([
+    JournalPage.prototype.getPatientDiaries = function () {
+        var _this = this;
+        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(function (diaries) {
+            _this.diaries = diaries;
+        }, function (err) { return console.log(err); });
+    };
+    JournalPage.prototype.happyMood = function (ionicButton) {
+        if (this.mood === 1) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 1;
+            //this.buttonColor = "dark";
+            ionicButton._color = 'orange';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.sadMood = function (ionicButton) {
+        if (this.mood === 2) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 2;
+            //this.buttonColor = 'dark';
+            ionicButton._color = 'dark';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.angerMood = function (ionicButton) {
+        if (this.mood === 3) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 3;
+            ionicButton._color = 'black';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.disgustMood = function (ionicButton) {
+        if (this.mood === 4) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 4;
+            //this.buttonColor = "dark";
+            ionicButton._color = 'orange';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.fearMood = function (ionicButton) {
+        if (this.mood === 5) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 5;
+            //this.buttonColor = "dark";
+            ionicButton._color = 'orange';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.surpriseMood = function (ionicButton) {
+        if (this.mood === 6) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 6;
+            //this.buttonColor = 'dark';
+            ionicButton._color = 'dark';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.dispiseMood = function (ionicButton) {
+        if (this.mood === 7) {
+            this.mood = 0;
+            ionicButton._color = "primary";
+        }
+        else {
+            this.mood = 7;
+            //this.buttonColor = "dark";
+            ionicButton._color = 'orange';
+        }
+        console.log(this.mood);
+    };
+    JournalPage.prototype.diarySubmit = function () {
+        var _this = this;
+        if (this.content) {
+            this.patientCtrl.sendPatientDiary(this.content, this.mood, this.user.patient.id).subscribe(function () {
+                _this.getPatientDiaries();
+                _this.content = '';
+            }, function (err) { return console.log(err); });
+        }
+        else {
+            this.toastCtrl.create('Le contenu du journal ne peut pas être envoyé vide', false, 'top');
+        }
+    };
+    JournalPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recettes',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/'<!--\n  Generated template for the RecettesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n</ion-header>\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/,
+            selector: 'page-journal',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\journal\journal.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n        <ion-title>Journal</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n    <ion-list *ngFor="let diary of diaries">\n\n        <ion-card>\n\n            <ion-card-header>\n\n                {{ diary.creation_date | date: \'dd/MM/yyyy\' }}\n\n                {{ diary.humeur }}\n\n            </ion-card-header>\n\n            <ion-card-content>\n\n                {{ diary.content }}\n\n            </ion-card-content>\n\n        </ion-card>\n\n    </ion-list>\n\n\n\n    <ion-item>\n\n        <ion-textarea rows="5" placeholder="Cher journal," [(ngModel)]="content"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <ion-row>\n\n            <ion-col col>\n\n                <button #happy [color]="buttonColor" class="mood-button" (click)="happyMood(happy)" ion-button small round icon-only><ion-icon name="happy"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #sad [color]="buttonColor" class="mood-button" (click)="sadMood(sad)" ion-button small round icon-only><ion-icon name="sad"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #anger class="mood-button" (click)="angerMood(anger)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #disgust class="mood-button" (click)="disgustMood(disgust)" ion-button small round icon-only><ion-icon name="wine"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #fear class="mood-button" (click)="fearMood(fear)" ion-button small round icon-only><ion-icon name="outlet"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #surprise class="mood-button" (click)="surpriseMood(surprise)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>\n\n            </ion-col>\n\n            <ion-col col>\n\n                <button #dispise class="mood-button" (click)="dispiseMood(surprise)" ion-button small round icon-only><ion-icon name="star"></ion-icon></button>\n\n            </ion-col>\n\n      </ion-row>\n\n    <button ion-button block outline (click)="diarySubmit()">Envoyer</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\journal\journal.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], RecettesPage);
-    return RecettesPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */],
+            __WEBPACK_IMPORTED_MODULE_3__providers__["d" /* Toast */]])
+    ], JournalPage);
+    return JournalPage;
 }());
 
-//# sourceMappingURL=recettes.js.map
+//# sourceMappingURL=journal.js.map
+
+/***/ }),
+
+/***/ 157:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecettesDetailsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the RecettesDetailsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RecettesDetailsPage = /** @class */ (function () {
+    function RecettesDetailsPage(navCtrl, patientCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.patientCtrl = patientCtrl;
+        this.navParams = navParams;
+        this.canRender = false;
+        this.id = this.navParams.get('id');
+        this.getRecipeDetail(this.id);
+    }
+    RecettesDetailsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RecettesDetailsPage');
+    };
+    RecettesDetailsPage.prototype.getRecipeDetail = function (id) {
+        var _this = this;
+        this.patientCtrl.getRecipeDetail(this.id).subscribe(function (recipeDetail) {
+            _this.recipeDetail = recipeDetail;
+            _this.canRender = true;
+            console.log(_this.recipeDetail.id + "\n name : " + _this.recipeDetail.name);
+        }, function (err) { return console.log(err); });
+    };
+    RecettesDetailsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-recettes-details',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes-details\recettes-details.html"*/'<!--\n  Generated template for the RecettesDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>recettesDetails</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n                <div *ngIf="canRender">{{ recipeDetail.id }}\n                {{ recipeDetail.name}}</div>\n</ion-content>\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dans une recette</ion-title>\n  </ion-navbar>\n</ion-header>'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes-details\recettes-details.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], RecettesDetailsPage);
+    return RecettesDetailsPage;
+}());
+
+//# sourceMappingURL=recettes-details.js.map
 
 /***/ }),
 
@@ -409,7 +374,7 @@ var RecettesPage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MusiquePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -452,10 +417,81 @@ var MusiquePage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecettesPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recettes_details_recettes_details__ = __webpack_require__(157);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the RecettesPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RecettesPage = /** @class */ (function () {
+    function RecettesPage(navCtrl, patientCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.patientCtrl = patientCtrl;
+        this.navParams = navParams;
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        this.getAllRecipesNames();
+    }
+    RecettesPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RecettesPage');
+    };
+    RecettesPage.prototype.SelectClicked = function (recipe, myEvent) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__recettes_details_recettes_details__["a" /* RecettesDetailsPage */], {
+            id: recipe.id
+        });
+    };
+    RecettesPage.prototype.getAllRecipesNames = function () {
+        var _this = this;
+        this.patientCtrl.getAllRecipesNames().subscribe(function (recipes) {
+            console.log(recipes);
+            _this.recipes = recipes;
+        }, function (err) { return console.log(err); });
+        /*console.log("IN FOR");
+        for (let recipe in this.recipes){
+            console.log("TAMERE");
+            console.log(recipe.img_path);
+        }
+        console.log("OUT FOR");*/
+    };
+    RecettesPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-recettes',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/'<!--\n  Generated template for the RecettesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list *ngFor="let recipe of recipes" class="myList">\n          <button (click)="SelectClicked(recipe, $event)">\n            <ion-card class="myCard">\n                <img class="recipeImage" src="assets/imgs/{{recipe.img_path}}" height="150 px" width="250 px">\n                <div class="myOverlay">\n                  {{ recipe.name}}\n                  {{ recipe.nb_cal }}\n                </div>\n            </ion-card>\n          </button>\n    </ion-list>\n</ion-content>\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n</ion-header>\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object])
+    ], RecettesPage);
+    return RecettesPage;
+    var _a, _b, _c;
+}());
+
+//# sourceMappingURL=recettes.js.map
+
+/***/ }),
+
+/***/ 160:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReglagesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -557,7 +593,7 @@ var ReglagesPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -570,40 +606,44 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 170;
+webpackEmptyAsyncContext.id = 171;
 
 /***/ }),
 
-/***/ 217:
+/***/ 218:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/accueil/accueil.module": [
-		687,
-		6
+		688,
+		7
 	],
 	"../pages/contact/contact.module": [
-		688,
-		5
+		689,
+		6
 	],
 	"../pages/jeux/jeux.module": [
 		690,
-		4
+		5
 	],
 	"../pages/journal/journal.module": [
-		689,
-		3
+		691,
+		4
 	],
 	"../pages/musique/musique.module": [
+		693,
+		3
+	],
+	"../pages/recettes-details/recettes-details.module": [
 		692,
 		2
 	],
 	"../pages/recettes/recettes.module": [
-		691,
+		694,
 		1
 	],
 	"../pages/reglages/reglages.module": [
-		693,
+		695,
 		0
 	]
 };
@@ -618,20 +658,20 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 217;
+webpackAsyncContext.id = 218;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 349:
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__accueil_accueil__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__accueil_accueil__ = __webpack_require__(87);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -683,13 +723,13 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 354:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(360);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -697,35 +737,37 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 359:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(681);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_accueil_accueil__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_journal_journal__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_recettes_recettes__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_musique_musique__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_jeux_jeux__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_contact_contact__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_reglages_reglages__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_global_global__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(682);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_list_list__ = __webpack_require__(686);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_accueil_accueil__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_journal_journal__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_recettes_recettes__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_recettes_details_recettes_details__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_jeux_jeux__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_contact_contact__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_reglages_reglages__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_global_global__ = __webpack_require__(687);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -758,10 +800,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__pages_accueil_accueil__["a" /* AccueilPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_journal_journal__["a" /* JournalPage */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_recettes_recettes__["a" /* RecettesPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_musique_musique__["a" /* MusiquePage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_jeux_jeux__["a" /* JeuxPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_contact_contact__["a" /* ContactPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_reglages_reglages__["a" /* ReglagesPage */]
+                __WEBPACK_IMPORTED_MODULE_13__pages_recettes_details_recettes_details__["a" /* RecettesDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__["a" /* MusiquePage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_jeux_jeux__["a" /* JeuxPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_contact_contact__["a" /* ContactPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_reglages_reglages__["a" /* ReglagesPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -770,10 +813,11 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/accueil/accueil.module#AccueilPageModule', name: 'AccueilPage', segment: 'accueil', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/contact/contact.module#ContactPageModule', name: 'ContactPage', segment: 'contact', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/journal/journal.module#JournalPageModule', name: 'JournalPage', segment: 'journal', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/jeux/jeux.module#JeuxPageModule', name: 'JeuxPage', segment: 'jeux', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/recettes/recettes.module#RecettesPageModule', name: 'RecettesPage', segment: 'recettes', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/journal/journal.module#JournalPageModule', name: 'JournalPage', segment: 'journal', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/recettes-details/recettes-details.module#RecettesDetailsPageModule', name: 'RecettesDetailsPage', segment: 'recettes-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/musique/musique.module#MusiquePageModule', name: 'MusiquePage', segment: 'musique', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/recettes/recettes.module#RecettesPageModule', name: 'RecettesPage', segment: 'recettes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reglages/reglages.module#ReglagesPageModule', name: 'ReglagesPage', segment: 'reglages', priority: 'low', defaultHistory: [] }
                     ]
                 }),
@@ -786,10 +830,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_10__pages_accueil_accueil__["a" /* AccueilPage */],
                 __WEBPACK_IMPORTED_MODULE_11__pages_journal_journal__["a" /* JournalPage */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_recettes_recettes__["a" /* RecettesPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_musique_musique__["a" /* MusiquePage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_jeux_jeux__["a" /* JeuxPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_contact_contact__["a" /* ContactPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_reglages_reglages__["a" /* ReglagesPage */]
+                __WEBPACK_IMPORTED_MODULE_13__pages_recettes_details_recettes_details__["a" /* RecettesDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__["a" /* MusiquePage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_jeux_jeux__["a" /* JeuxPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_contact_contact__["a" /* ContactPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_reglages_reglages__["a" /* ReglagesPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
@@ -799,7 +844,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_5__providers__["b" /* AuthService */],
                 __WEBPACK_IMPORTED_MODULE_5__providers__["d" /* Toast */],
                 { provide: __WEBPACK_IMPORTED_MODULE_2__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_17__providers_global_global__["a" /* GlobalProvider */],
+                __WEBPACK_IMPORTED_MODULE_18__providers_global_global__["a" /* GlobalProvider */],
             ]
         })
     ], AppModule);
@@ -810,7 +855,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 379:
+/***/ 380:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -825,7 +870,7 @@ var ENV = {
 
 /***/ }),
 
-/***/ 380:
+/***/ 381:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -834,8 +879,8 @@ var ENV = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(382);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -897,11 +942,11 @@ var AuthService = /** @class */ (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__api_service__ = __webpack_require__(120);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_service__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__auth_service__ = __webpack_require__(381);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__auth_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__patient_service__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__patient_service__ = __webpack_require__(56);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__patient_service__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toast__ = __webpack_require__(663);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__toast__ = __webpack_require__(664);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_3__toast__["a"]; });
 
 
@@ -911,13 +956,68 @@ var AuthService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 663:
+/***/ 56:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PatientService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_service__ = __webpack_require__(120);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PatientService = /** @class */ (function () {
+    function PatientService(api) {
+        this.api = api;
+    }
+    PatientService.prototype.sendPatientDiary = function (content, mood, id) {
+        return this.api.post('/patient/diary/', { content: content, id: id, mood: mood });
+    };
+    PatientService.prototype.getAllRecipesNames = function () {
+        return this.api.get('/patient/recipesNames/');
+    };
+    PatientService.prototype.getRecipeDetail = function (id) {
+        return this.api.get('/patient/recipeDetails/' + id);
+    };
+    PatientService.prototype.getPatientDiaries = function (id) {
+        return this.api.get('/patient/diaries/' + id);
+    };
+    PatientService.prototype.changeEmail = function (id, newEmail) {
+        var data = {
+            'id': id,
+            'newEmail': newEmail
+        };
+        return this.api.post('/patient/changeEmail/', data);
+    };
+    PatientService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_service__["a" /* ApiService */]])
+    ], PatientService);
+    return PatientService;
+}());
+
+//# sourceMappingURL=patient.service.js.map
+
+/***/ }),
+
+/***/ 664:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Toast; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -955,23 +1055,23 @@ var Toast = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 681:
+/***/ 682:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_accueil_accueil__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_journal_journal__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_recettes_recettes__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_accueil_accueil__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_journal_journal__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_recettes_recettes__ = __webpack_require__(159);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_musique_musique__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jeux_jeux__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jeux_jeux__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_reglages_reglages__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_reglages_reglages__ = __webpack_require__(160);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1039,32 +1139,28 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>\n\n        <img src="../assets/imgs/mandareen-logo.png" width="20%">\n\n        Mandareen\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n            {{p.title}}\n\n        </button>\n\n        <ion-item menuClose (click)="logOutClicked()">\n\n            <ion-icon name="log-out" item-start></ion-icon>\n\n            Me déconnecter\n\n        </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */],
-            __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Toast */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Toast */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Toast */]) === "function" && _g || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 685:
+/***/ 686:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1115,7 +1211,7 @@ var ListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 686:
+/***/ 687:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1158,13 +1254,13 @@ var GlobalProvider = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccueilPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1203,5 +1299,5 @@ var AccueilPage = /** @class */ (function () {
 
 /***/ })
 
-},[354]);
+},[355]);
 //# sourceMappingURL=main.js.map

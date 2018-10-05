@@ -27,8 +27,20 @@ export class JournalPage {
                 public patientCtrl: PatientService,
                 private toastCtrl: Toast) {
         this.user = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(this.user);
         this.getPatientDiaries();
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad JournalPage');
+    }
+
+    getPatientDiaries() {
+        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(
+            (diaries) => {
+                this.diaries = diaries;
+            },
+            (err) => {return console.log(err);}
+        );
     }
 
     happyMood(ionicButton) {
@@ -121,20 +133,8 @@ export class JournalPage {
         console.log(this.mood);
     }
 
-    getPatientDiaries() {
-        this.patientCtrl.getPatientDiaries(this.user.patient.id).subscribe(
-            (diaries) => {
-                console.log(diaries);
-                this.diaries = diaries;
-            },
-            (err) => {return console.log(err);}
-        );
-    }
-
     diarySubmit() {
         if (this.content) {
-            console.log(this.mood);
-            console.log(this.content);
             this.patientCtrl.sendPatientDiary(this.content, this.mood, this.user.patient.id).subscribe(
                 () => {
                     this.getPatientDiaries();

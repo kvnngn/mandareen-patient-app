@@ -11,6 +11,14 @@ export class PatientService {
         return this.api.post('/patient/diary/', {content: content, id : id, mood : mood});
     }
 
+    getAllRecipesNames(){
+        return this.api.get('/patient/recipesNames/');
+    }
+
+    getRecipeDetail(id){
+        return this.api.get('/patient/recipeDetails/' + id);
+    }
+
     getPatientDiaries(id) {
         return this.api.get('/patient/diaries/' + id);
     }

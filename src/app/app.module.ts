@@ -1,4 +1,5 @@
 import {HttpClientModule} from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -15,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AccueilPage } from '../pages/accueil/accueil';
 import { JournalPage } from '../pages/journal/journal';
 import { RecettesPage } from '../pages/recettes/recettes';
+import { RecettesDetailsPage } from '../pages/recettes-details/recettes-details';
 import { MusiquePage } from '../pages/musique/musique';
 import { JeuxPage } from '../pages/jeux/jeux';
 import { ContactPage } from '../pages/contact/contact';
@@ -29,6 +31,7 @@ import { GlobalProvider } from '../providers/global/global';
     AccueilPage,
     JournalPage,
     RecettesPage,
+    RecettesDetailsPage,
     MusiquePage,
     JeuxPage,
     ContactPage,
@@ -47,6 +50,7 @@ import { GlobalProvider } from '../providers/global/global';
     AccueilPage,
     JournalPage,
     RecettesPage,
+    RecettesDetailsPage,
     MusiquePage,
     JeuxPage,
     ContactPage,

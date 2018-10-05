@@ -14,8 +14,19 @@
 
 
 <ion-content padding>
-
+    <ion-list *ngFor="let recipe of recipes" class="myList">
+          <button (click)="SelectClicked(recipe, $event)">
+            <ion-card class="myCard">
+                <img class="recipeImage" src="assets/imgs/{{recipe.img_path}}" height="150 px" width="250 px">
+                <div class="myOverlay">
+                  {{ recipe.name}}
+                  {{ recipe.nb_cal }}
+                </div>
+            </ion-card>
+          </button>
+    </ion-list>
 </ion-content>
+
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>

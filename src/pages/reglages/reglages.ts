@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { GlobalProvider } from '../../providers/global/global';
 import {PatientService} from '../../providers/patient.service';
 import { AlertController} from 'ionic-angular'
-import {componentRefresh} from "@angular/core/src/render3/instructions";
 
 /**
  * Generated class for the ReglagesPage page.
