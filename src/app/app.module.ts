@@ -21,7 +21,6 @@ import { MusiquePage } from '../pages/musique/musique';
 import { JeuxPage } from '../pages/jeux/jeux';
 import { ContactPage } from '../pages/contact/contact';
 import { ReglagesPage } from '../pages/reglages/reglages';
-import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
   declarations: [
@@ -64,7 +63,6 @@ import { GlobalProvider } from '../providers/global/global';
     AuthService,
     Toast,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GlobalProvider,
   ]
 })
 export class AppModule {}

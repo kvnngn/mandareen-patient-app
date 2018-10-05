@@ -54,10 +54,10 @@ var ApiService = /** @class */ (function () {
     };
     ApiService = ApiService_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
     ], ApiService);
     return ApiService;
-    var ApiService_1, _a;
+    var ApiService_1;
 }());
 
 //# sourceMappingURL=api.service.js.map
@@ -313,65 +313,6 @@ var JournalPage = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecettesDetailsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the RecettesDetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var RecettesDetailsPage = /** @class */ (function () {
-    function RecettesDetailsPage(navCtrl, patientCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.patientCtrl = patientCtrl;
-        this.navParams = navParams;
-        this.canRender = false;
-        this.id = this.navParams.get('id');
-        this.getRecipeDetail(this.id);
-    }
-    RecettesDetailsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RecettesDetailsPage');
-    };
-    RecettesDetailsPage.prototype.getRecipeDetail = function (id) {
-        var _this = this;
-        this.patientCtrl.getRecipeDetail(this.id).subscribe(function (recipeDetail) {
-            _this.recipeDetail = recipeDetail;
-            _this.canRender = true;
-            console.log(_this.recipeDetail.id + "\n name : " + _this.recipeDetail.name);
-        }, function (err) { return console.log(err); });
-    };
-    RecettesDetailsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recettes-details',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes-details\recettes-details.html"*/'<!--\n  Generated template for the RecettesDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>recettesDetails</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n                <div *ngIf="canRender">{{ recipeDetail.id }}\n                {{ recipeDetail.name}}</div>\n</ion-content>\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Dans une recette</ion-title>\n  </ion-navbar>\n</ion-header>'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes-details\recettes-details.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], RecettesDetailsPage);
-    return RecettesDetailsPage;
-}());
-
-//# sourceMappingURL=recettes-details.js.map
-
-/***/ }),
-
-/***/ 158:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MusiquePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
@@ -413,6 +354,74 @@ var MusiquePage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 158:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecettesDetailsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the RecettesDetailsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RecettesDetailsPage = /** @class */ (function () {
+    function RecettesDetailsPage(navCtrl, patientCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.patientCtrl = patientCtrl;
+        this.navParams = navParams;
+        this.canRender = false;
+        this.id = this.navParams.get('id');
+        this.recipeDetail = {
+            ingredients: "",
+            description: "",
+            name: "",
+            img_path: "",
+            id: -1,
+            nb_cal: 0
+        };
+        this.getRecipeDetail(this.id);
+    }
+    RecettesDetailsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RecettesDetailsPage');
+    };
+    RecettesDetailsPage.prototype.getRecipeDetail = function (id) {
+        var _this = this;
+        this.patientCtrl.getRecipeDetail(this.id).subscribe(function (recipeDetail) {
+            _this.recipeDetail = recipeDetail;
+            _this.recipeDetail.ingredients = recipeDetail['ingredients'].replace(/;/g, '\n');
+            _this.recipeDetail.description = recipeDetail['description'].replace(/;ÉTAPE/g, ";;ÉTAPE").replace(/;/g, '\n');
+            _this.canRender = true;
+        }, function (err) { return console.log(err); });
+    };
+    RecettesDetailsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-recettes-details',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes-details\recettes-details.html"*/'<!--\n  Generated template for the RecettesDetailsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n        <ion-title *ngIf="canRender">{{ recipeDetail.name}}</ion-title>\n    </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n            <div *ngIf="canRender" class="recipeContent">\n              <div>\n                <h1>{{ recipeDetail.name }}</h1>\n                <img class="recipeImage" src="assets/imgs/{{recipeDetail.img_path}}">\n                <p>Nombre de calories : {{ recipeDetail.nb_cal }}</p>\n              </div>\n              <div class="ingredientsContent">\n                <h2>Ingredients :</h2>\n                <p>{{recipeDetail.ingredients }}</p>\n              </div>\n              <div class="preparationContent">\n                <h2>Préparation</h2>\n                <p>{{ recipeDetail.description }}</p>\n              </div>\n            </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes-details\recettes-details.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+    ], RecettesDetailsPage);
+    return RecettesDetailsPage;
+}());
+
+//# sourceMappingURL=recettes-details.js.map
+
+/***/ }),
+
 /***/ 159:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -421,7 +430,7 @@ var MusiquePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recettes_details_recettes_details__ = __webpack_require__(157);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recettes_details_recettes_details__ = __webpack_require__(158);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -460,24 +469,18 @@ var RecettesPage = /** @class */ (function () {
     RecettesPage.prototype.getAllRecipesNames = function () {
         var _this = this;
         this.patientCtrl.getAllRecipesNames().subscribe(function (recipes) {
-            console.log(recipes);
             _this.recipes = recipes;
         }, function (err) { return console.log(err); });
-        /*console.log("IN FOR");
-        for (let recipe in this.recipes){
-            console.log("TAMERE");
-            console.log(recipe.img_path);
-        }
-        console.log("OUT FOR");*/
     };
     RecettesPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recettes',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/'<!--\n  Generated template for the RecettesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list *ngFor="let recipe of recipes" class="myList">\n          <button (click)="SelectClicked(recipe, $event)">\n            <ion-card class="myCard">\n                <img class="recipeImage" src="assets/imgs/{{recipe.img_path}}" height="150 px" width="250 px">\n                <div class="myOverlay">\n                  {{ recipe.name}}\n                  {{ recipe.nb_cal }}\n                </div>\n            </ion-card>\n          </button>\n    </ion-list>\n</ion-content>\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n</ion-header>\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/,
+            selector: 'page-recettes',template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/'<!--\n  Generated template for the RecettesPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-list *ngFor="let recipe of recipes" class="myList">\n          <button (click)="SelectClicked(recipe, $event)">\n            <ion-card class="myCard">\n                <img class="recipeImage" src="assets/imgs/{{recipe.img_path}}">\n                <div class="myOverlay">\n                  {{ recipe.name}}\n                  {{ recipe.nb_cal }}\n                </div>\n            </ion-card>\n          </button>\n    </ion-list>\n</ion-content>\n\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Recettes</ion-title>\n  </ion-navbar>\n</ion-header>\n'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\pages\recettes\recettes.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_patient_service__["a" /* PatientService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], RecettesPage);
     return RecettesPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=recettes.js.map
@@ -615,23 +618,23 @@ webpackEmptyAsyncContext.id = 171;
 
 var map = {
 	"../pages/accueil/accueil.module": [
-		688,
+		687,
 		7
 	],
 	"../pages/contact/contact.module": [
-		689,
+		688,
 		6
 	],
 	"../pages/jeux/jeux.module": [
-		690,
+		689,
 		5
 	],
 	"../pages/journal/journal.module": [
-		691,
+		690,
 		4
 	],
 	"../pages/musique/musique.module": [
-		693,
+		691,
 		3
 	],
 	"../pages/recettes-details/recettes-details.module": [
@@ -639,11 +642,11 @@ var map = {
 		2
 	],
 	"../pages/recettes/recettes.module": [
-		694,
+		693,
 		1
 	],
 	"../pages/reglages/reglages.module": [
-		695,
+		694,
 		0
 	]
 };
@@ -755,19 +758,17 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_accueil_accueil__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_journal_journal__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_recettes_recettes__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_recettes_details_recettes_details__ = __webpack_require__(157);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_recettes_details_recettes_details__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_musique_musique__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_jeux_jeux__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_contact_contact__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_reglages_reglages__ = __webpack_require__(160);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_global_global__ = __webpack_require__(687);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -815,8 +816,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/contact/contact.module#ContactPageModule', name: 'ContactPage', segment: 'contact', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/jeux/jeux.module#JeuxPageModule', name: 'JeuxPage', segment: 'jeux', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/journal/journal.module#JournalPageModule', name: 'JournalPage', segment: 'journal', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/recettes-details/recettes-details.module#RecettesDetailsPageModule', name: 'RecettesDetailsPage', segment: 'recettes-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/musique/musique.module#MusiquePageModule', name: 'MusiquePage', segment: 'musique', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/recettes-details/recettes-details.module#RecettesDetailsPageModule', name: 'RecettesDetailsPage', segment: 'recettes-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/recettes/recettes.module#RecettesPageModule', name: 'RecettesPage', segment: 'recettes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/reglages/reglages.module#ReglagesPageModule', name: 'ReglagesPage', segment: 'reglages', priority: 'low', defaultHistory: [] }
                     ]
@@ -844,7 +845,6 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_5__providers__["b" /* AuthService */],
                 __WEBPACK_IMPORTED_MODULE_5__providers__["d" /* Toast */],
                 { provide: __WEBPACK_IMPORTED_MODULE_2__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_18__providers_global_global__["a" /* GlobalProvider */],
             ]
         })
     ], AppModule);
@@ -1068,7 +1068,7 @@ var Toast = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_accueil_accueil__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_journal_journal__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_recettes_recettes__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_musique_musique__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_musique_musique__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jeux_jeux__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_contact_contact__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_reglages_reglages__ = __webpack_require__(160);
@@ -1139,15 +1139,19 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\sopit\rendu\mandareen-patient-app\src\app\app.html"*/'<ion-menu [content]="content">\n\n  <ion-header>\n\n    <ion-toolbar>\n\n      <ion-title>\n\n        <img src="../assets/imgs/mandareen-logo.png" width="20%">\n\n        Mandareen\n\n      </ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content>\n\n    <ion-list>\n\n        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n\n            {{p.title}}\n\n        </button>\n\n        <ion-item menuClose (click)="logOutClicked()">\n\n            <ion-icon name="log-out" item-start></ion-icon>\n\n            Me déconnecter\n\n        </ion-item>\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\Users\sopit\rendu\mandareen-patient-app\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Toast */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Toast */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* App */],
+            __WEBPACK_IMPORTED_MODULE_12__providers__["b" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_12__providers__["d" /* Toast */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -1208,49 +1212,6 @@ var ListPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=list.js.map
-
-/***/ }),
-
-/***/ 687:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GlobalProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-/*
-  Generated class for the GlobalProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var GlobalProvider = /** @class */ (function () {
-    function GlobalProvider() {
-        this.globalVar = "";
-    }
-    GlobalProvider.prototype.setGlobalProvider = function (value) {
-        this.globalVar = value;
-    };
-    GlobalProvider.prototype.getGlobalProvider = function () {
-        return this.globalVar;
-    };
-    GlobalProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], GlobalProvider);
-    return GlobalProvider;
-}());
-
-//# sourceMappingURL=global.js.map
 
 /***/ }),
 

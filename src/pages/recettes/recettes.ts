@@ -41,17 +41,10 @@ export class RecettesPage {
     getAllRecipesNames() {
         this.patientCtrl.getAllRecipesNames().subscribe(
             (recipes) => {
-                console.log(recipes);
                 this.recipes = recipes;
             },
             (err) => {return console.log(err);}
         );
-        /*console.log("IN FOR");
-        for (let recipe in this.recipes){
-            console.log("TAMERE");
-            console.log(recipe.img_path);
-        }
-        console.log("OUT FOR");*/
     }
 
 

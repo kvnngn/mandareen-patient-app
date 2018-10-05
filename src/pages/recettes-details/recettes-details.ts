@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PatientService} from '../../providers/patient.service';
-import {Toast} from '../../providers';
 
 /**
  * Generated class for the RecettesDetailsPage page.
@@ -23,6 +22,14 @@ export class RecettesDetailsPage {
 
   constructor(public navCtrl: NavController, public patientCtrl: PatientService, public navParams: NavParams) {
   	this.id = this.navParams.get('id');
+    this.recipeDetail = {
+      ingredients: "",
+      description: "",
+      name: "",
+      img_path: "",
+      id: -1,
+      nb_cal: 0
+    }
   	this.getRecipeDetail(this.id);
   }
 
@@ -34,8 +41,9 @@ export class RecettesDetailsPage {
         this.patientCtrl.getRecipeDetail(this.id).subscribe(
             (recipeDetail) => {
                 this.recipeDetail = recipeDetail;
+                this.recipeDetail.ingredients = recipeDetail['ingredients'].replace(/;/g, '\n');
+                this.recipeDetail.description = recipeDetail['description'].replace(/;ÉTAPE/g, ";;ÉTAPE").replace(/;/g, '\n');
                 this.canRender = true;
-                console.log(this.recipeDetail.id + "\n name : " + this.recipeDetail.name);
             },
             (err) => {return console.log(err);}
         );

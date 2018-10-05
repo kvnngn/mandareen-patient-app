@@ -25820,6 +25820,48 @@ page-recettes .myOverlay {
   color: #fff;
 }
 
+page-recettes-details img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 250px;
+}
+
+page-recettes-details h1 {
+  color: #feb141;
+  font-size: 40px;
+  text-align: center;
+}
+
+page-recettes-details h2 {
+  text-align: center;
+  color: #feb141;
+  font-size: 32px;
+}
+
+page-recettes-details p {
+  font-size: 19px;
+  margin-left: 20px;
+  white-space: pre-line;
+  width: 80%;
+}
+
+page-recettes-details .recipeContent {
+  white-space: pre;
+  background: #f2f2f2;
+  min-height: 100px;
+  width: 85%;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+page-recettes-details .ingredientsContent {
+  border-top: 2px solid #e1e1e1 !important;
+  border-bottom: 2px solid #e1e1e1 !important;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }

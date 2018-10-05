@@ -1,3 +1,47 @@
 page-recettes-details {
+	img{
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+		width:400px;
+		height:250px;
+	}
 
+	h1 {
+		color: #feb141;
+		font-size: 40px;
+		text-align: center;
+	}
+
+	h2 {
+		text-align: center;
+		color: #feb141;
+		font-size: 32px;
+	}
+
+	p {
+		font-size: 19px;
+		margin-left: 20px;
+		white-space: pre-line;
+		width: 80%;
+	}
+
+	.recipeContent {
+		white-space: pre;
+		background: #f2f2f2;
+  		min-height: 100px;
+  		width: 85%;
+  		display: block;
+  		margin: 0 auto;
+  		overflow: hidden;
+	}
+
+	.ingredientsContent {
+		border-top: 2px solid #e1e1e1 !important;
+		border-bottom: 2px solid #e1e1e1 !important;
+	}
+
+	.preparationContent {
+
+	}
 }

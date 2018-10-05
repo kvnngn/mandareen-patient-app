@@ -5,24 +5,29 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>recettesDetails</ion-title>
-  </ion-navbar>
-
+    <ion-navbar>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+        <ion-title *ngIf="canRender">{{ recipeDetail.name}}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-                <div *ngIf="canRender">{{ recipeDetail.id }}
-                {{ recipeDetail.name}}</div>
+            <div *ngIf="canRender" class="recipeContent">
+              <div>
+                <h1>{{ recipeDetail.name }}</h1>
+                <img class="recipeImage" src="assets/imgs/{{recipeDetail.img_path}}">
+                <p>Nombre de calories : {{ recipeDetail.nb_cal }}</p>
+              </div>
+              <div class="ingredientsContent">
+                <h2>Ingredients :</h2>
+                <p>{{recipeDetail.ingredients }}</p>
+              </div>
+              <div class="preparationContent">
+                <h2>Préparation</h2>
+                <p>{{ recipeDetail.description }}</p>
+              </div>
+            </div>
 </ion-content>
-
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Dans une recette</ion-title>
-  </ion-navbar>
-</ion-header>
