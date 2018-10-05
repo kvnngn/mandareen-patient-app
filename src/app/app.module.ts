@@ -17,6 +17,7 @@ import { AccueilPage } from '../pages/accueil/accueil';
 import { JournalPage } from '../pages/journal/journal';
 import { RecettesPage } from '../pages/recettes/recettes';
 import { RecettesDetailsPage } from '../pages/recettes-details/recettes-details';
+import { ModifierJournalPage } from '../pages/modifier-journal/modifier-journal';
 import { MusiquePage } from '../pages/musique/musique';
 import { JeuxPage } from '../pages/jeux/jeux';
 import { ContactPage } from '../pages/contact/contact';
@@ -31,6 +32,7 @@ import { ReglagesPage } from '../pages/reglages/reglages';
     JournalPage,
     RecettesPage,
     RecettesDetailsPage,
+    ModifierJournalPage,
     MusiquePage,
     JeuxPage,
     ContactPage,
@@ -50,6 +52,7 @@ import { ReglagesPage } from '../pages/reglages/reglages';
     JournalPage,
     RecettesPage,
     RecettesDetailsPage,
+    ModifierJournalPage,
     MusiquePage,
     JeuxPage,
     ContactPage,

@@ -23,6 +23,15 @@ export class PatientService {
         return this.api.get('/patient/diaries/' + id);
     }
 
+    updatePatientDiary(content, id) {
+        let data = {
+            'id': id,
+            'content': content
+        }
+        return this.api.put('/patient/diary/', data);
+    }
+
+
     changeEmail(id, newEmail) {
         let data = {
             'id': id,

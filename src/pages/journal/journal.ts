@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
 import {PatientService} from '../../providers/patient.service';
 import {Toast} from '../../providers';
+import {AccueilPage} from "../accueil/accueil";
+import {ModifierJournalPage} from "../modifier-journal/modifier-journal";
 
 /**
  * Generated class for the JournalPage page.
@@ -32,6 +34,10 @@ export class JournalPage {
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad JournalPage');
+    }
+
+    diaryUpdatePage(id, content, date) {
+        this.navCtrl.setRoot(ModifierJournalPage, {id: id, content: content, date: date});
     }
 
     getPatientDiaries() {

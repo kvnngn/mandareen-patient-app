@@ -16,6 +16,7 @@
             </ion-card-header>
             <ion-card-content>
                 {{ diary.content }}
+                <button ion-button block outline (click)="diaryUpdatePage(diary.id, diary.content, diary.creation_date)">Modifier</button>
             </ion-card-content>
         </ion-card>
     </ion-list>
