@@ -11,10 +11,27 @@
   </ion-navbar>
 
 </ion-header>
-
+<!--
+rewind
+pause
+fast-forward
+play
+-->
 
 <ion-content padding>
-Coming soon
+  <button ion-button round (click)="getMusicList1()"> Liste de musique </button>
+  <br>
+  <ion-list *ngFor="let music of musicList">
+    <button ion-button (click)="playMusic(musicList.indexOf(music))"> {{music}} </button>
+  </ion-list>
+  <br>
+  <button #rewind ion-button round icon-only (click)="lastMusic()"><ion-icon name="rewind"></ion-icon></button>
+  <button #play ion-button round icon-only (click)="playButton()"><ion-icon name="play"></ion-icon></button>
+  <button #pause ion-button round icon-only (click)="pauseMusic()"><ion-icon name="pause"></ion-icon></button>
+  <button #stop ion-button round icon-only (click)="stopMusic()"><ion-icon name="square"></ion-icon></button>
+  <button #fastforward ion-button round icon-only (click)="nextMusic()"><ion-icon name="fastforward"></ion-icon></button>
+
+
 </ion-content>
 <ion-header>
   <ion-navbar>
