@@ -106,7 +106,7 @@ If you change the port, be sure to also update your `<allow-navigation>` `href` 
 #### config.xml
 ```
 <preference name="WKPort" value="12345" />
-<allow-navigation href="http://localhost:12345/*"/>
+<allow-navigation href="http://163.5.84.112:12345/*"/>
 ```
 
 Application Transport Security (ATS) in iOS 9

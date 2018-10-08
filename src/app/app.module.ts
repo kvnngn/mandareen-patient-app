@@ -23,6 +23,8 @@ import { JeuxPage } from '../pages/jeux/jeux';
 import { ContactPage } from '../pages/contact/contact';
 import { ReglagesPage } from '../pages/reglages/reglages';
 
+import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -42,6 +44,7 @@ import { ReglagesPage } from '../pages/reglages/reglages';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+      IonicAudioModule.forRoot(defaultAudioProviderFactory),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
