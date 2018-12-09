@@ -3,3 +3,4 @@
 ./sourcemaps
 ./www
 ./platforms
+node_modules
