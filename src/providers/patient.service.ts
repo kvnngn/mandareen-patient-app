@@ -11,8 +11,8 @@ export class PatientService {
         return this.api.post('/patient/diary/', {content: content, id : id, mood : mood});
     }
 
-    getAllRecipesNames(){
-        return this.api.get('/patient/recipesNames/');
+    getAllRecipesNames(offset){
+        return this.api.get('/patient/recipesNames/' + offset);
     }
 
     getRecipeDetail(id){

@@ -14,6 +14,7 @@
 
 
 <ion-content padding>
+  <ion-searchbar placeholder="Filter Items with Cancel" [showCancelButton]="shouldShowCancel" color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
     <ion-list *ngFor="let recipe of recipes" class="myList">
           <button (click)="SelectClicked(recipe, $event)">
             <ion-card class="myCard">
@@ -25,6 +26,13 @@
             </ion-card>
           </button>
     </ion-list>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" threshold="100px">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
 
 <ion-header>

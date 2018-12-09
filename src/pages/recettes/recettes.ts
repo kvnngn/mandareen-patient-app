@@ -17,15 +17,19 @@ import { RecettesDetailsPage } from '../recettes-details/recettes-details';
 })
 export class RecettesPage {
 
+    offset = 0;
     recipes;
+    save;
     patient: any;
     user;
+    page = 0;
+    maximumPages = 4;
 
 	constructor(public navCtrl: NavController,
                 public patientCtrl: PatientService,
                 public navParams: NavParams) {
         this.user = JSON.parse(localStorage.getItem('currentUser'));
-        this.getAllRecipesNames();
+        this.getAllRecipesNames(this.offset);
 	}
 
 	ionViewDidLoad() {
@@ -38,10 +42,39 @@ export class RecettesPage {
         });
 	}
 
-    getAllRecipesNames() {
-        this.patientCtrl.getAllRecipesNames().subscribe(
+    filterItems(ev: any) {
+        this.recipes = this.save
+        let val = ev.target.value;
+
+        if (val && val.trim() !== '') {
+          this.recipes = this.recipes.filter(function(recipes) {
+            return recipes.name.toLowerCase().includes(val.toLowerCase());
+          });
+        }
+    }
+
+    loadMore(infiniteScroll) {
+        this.page++;
+        this.getAllRecipesNames(infiniteScroll);
+
+        if (this.page === this.maximumPages) {
+          infiniteScroll.enable(false);
+        }
+    
+      }
+
+    getAllRecipesNames(infiniteScroll?) {
+        this.patientCtrl.getAllRecipesNames(this.offset).subscribe(
             (recipes) => {
-                this.recipes = recipes;
+                this.offset += 3;
+                if (this.recipes)
+                    Array.prototype.push.apply(this.recipes, recipes);
+                else
+                    this.recipes = recipes;
+                this.save = this.recipes;
+                if (infiniteScroll) {
+                    infiniteScroll.complete();
+                }
             },
             (err) => {return console.log(err);}
         );
