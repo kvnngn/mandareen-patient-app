@@ -1,6 +1,7 @@
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import {OneSignal} from '@ionic-native/onesignal';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import {ApiService} from '../providers';
 import {PatientService} from '../providers/patient.service';
@@ -55,6 +56,7 @@ import { ReglagesPage } from '../pages/reglages/reglages';
     SplashScreen,
     PatientService,
     ApiService,
+    OneSignal,
       {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
