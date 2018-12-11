@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform, LoadingController, Loading} from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { FilePath } from '@ionic-native/file-path';
 import { AndroidPermissions } from "@ionic-native/android-permissions";
 import { AlertController } from "ionic-angular";
 import { AudioProvider } from "ionic-audio";
+import { Storage } from "@ionic/storage";
+import SpotifyWebApi from "spotify-web-api-js";
 
 /**
  * Generated class for the MusiquePage page.
@@ -13,11 +15,13 @@ import { AudioProvider } from "ionic-audio";
  * Ionic pages and navigation.
  */
 
+declare var cordova: any;
+
 @IonicPage()
 @Component({
   selector: 'page-musique',
   templateUrl: 'musique.html',
-    providers: [File, FilePath, AndroidPermissions],
+    providers: [File, FilePath, AndroidPermissions, Storage],
 })
 
 export class MusiquePage {
@@ -26,12 +30,93 @@ export class MusiquePage {
     tracksList = [];
     selectedTrack;
     isPlaying = false;
+    result = {};
+    data = '';
+    playlists = [];
+    spotifyApi: any;
+    loggedIn = false;
+    loading: Loading;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
                 public file: File, public platform: Platform, public filePath: FilePath,
                 public permissions: AndroidPermissions, private alertCtrl: AlertController,
-                private audioProvider: AudioProvider) {
+                private audioProvider: AudioProvider, private storage: Storage, private loadingCtrl: LoadingController) {
 
+        this.spotifyApi = new SpotifyWebApi();
+
+        this.platform.ready().then(() => {
+            this.storage.get('logged_in').then(res => {
+                if (res) {
+                    this.authWithSpotify(true);
+                }
+            });
+        });
+    }
+
+    authWithSpotify(showLoading = false) {
+        const config = {
+            clientId: "902d20d5fa32455a9103d84be88363aa",
+            redirectUrl: "devdacticspotify://callback",
+            scopes: ["streaming", "playlist-read-private", "user-read-email", "user-read-private"],
+            tokenExchangeUrl: "https://spotifyoauthserver.herokuapp.com/exchange",
+            tokenRefreshUrl: "https://spotifyoauthserver.herokuapp.com/refresh",
+        };
+
+        if (showLoading) {
+            this.loading = this.loadingCtrl.create();
+            this.loading.present();
+        }
+
+        cordova.plugins.spotifyAuth.authorize(config)
+            .then(({ accessToken, encryptedRefreshToken, expiresAt }) => {
+                if (this.loading) {
+                    this.loading.dismiss();
+                }
+
+                this.result = { access_token: accessToken, expires_in: expiresAt, refresh_token: encryptedRefreshToken };
+                this.loggedIn = true;
+                this.spotifyApi.setAccessToken(accessToken);
+                this.getUserPlaylists();
+                this.storage.set('logged_in', true);
+            }, err => {
+                console.error(err);
+                if (this.loading) {
+                    this.loading.dismiss();
+                }
+            });
+    }
+
+    getUserPlaylists() {
+        this.loading = this.loadingCtrl.create({
+            content: "Loading Playlists...",
+        });
+        this.loading.present();
+
+        this.spotifyApi.getUserPlaylists()
+            .then(data => {
+                if (this.loading) {
+                    this.loading.dismiss();
+                }
+                this.playlists = data.items;
+            }, err => {
+                console.error(err);
+                if (this.loading) {
+                    this.loading.dismiss();
+                }
+            });
+    }
+
+    openPlaylist(item) {
+        this.navCtrl.push('PlaylistPage', { playlist: item });
+    }
+
+    logout() {
+        // Should be a promise but isn't
+        cordova.plugins.spotifyAuth.forget();
+
+        this.loggedIn = false;
+        this.playlists = [];
+        this.storage.set('logged_in', false);
     }
 
     public getMusicList1() {
@@ -186,5 +271,4 @@ export class MusiquePage {
     ionViewDidLoad() {
         console.log('ionViewDidLoad MusiquePage');
     }
-
 }

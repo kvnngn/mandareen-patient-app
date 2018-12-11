@@ -17,6 +17,7 @@ import { AndroidPermissions } from "@ionic-native/android-permissions";
         File,
         FilePath,
         AndroidPermissions,
+
     ],
 })
 export class MusiquePageModule {}

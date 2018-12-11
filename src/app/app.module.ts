@@ -25,6 +25,10 @@ import { ReglagesPage } from '../pages/reglages/reglages';
 
 import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
 
+import { Media } from "@ionic-native/media";
+import { IonicStorageModule } from "@ionic/storage";
+import { Storage } from "@ionic/storage";
+
 @NgModule({
   declarations: [
     MyApp,
@@ -45,6 +49,7 @@ import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
       IonicAudioModule.forRoot(defaultAudioProviderFactory),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -69,6 +74,8 @@ import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
     AuthService,
     Toast,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Media,
+    Storage,
   ]
 })
 export class AppModule {}
