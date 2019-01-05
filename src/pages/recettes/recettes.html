@@ -18,11 +18,13 @@
     <ion-list *ngFor="let recipe of recipes" class="myList">
           <button (click)="SelectClicked(recipe, $event)">
             <ion-card class="myCard">
-                <img class="recipeImage" src="assets/imgs/{{recipe.img_path}}">
+              <div ng-If="recipe && recipe.image">
+                <img class="recipeImage" [src]="recipe.image">
                 <div class="myOverlay">
                   {{ recipe.name}}
                   {{ recipe.nb_cal }}
                 </div>
+              </div>
             </ion-card>
           </button>
     </ion-list>

@@ -40,6 +40,10 @@ export class RecettesDetailsPage {
 	getRecipeDetail(id) {
         this.patientCtrl.getRecipeDetail(this.id).subscribe(
             (recipeDetail) => {
+                if (recipeDetail.image && recipeDetail.image.data) {
+                  const imageData = recipeDetail.image.data;
+                  recipeDetail.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));
+                }
                 this.recipeDetail = recipeDetail;
                 this.recipeDetail.ingredients = recipeDetail['ingredients'].replace(/;/g, '\n');
                 this.recipeDetail.description = recipeDetail['description'].replace(/;ÉTAPE/g, ";;ÉTAPE").replace(/;/g, '\n');

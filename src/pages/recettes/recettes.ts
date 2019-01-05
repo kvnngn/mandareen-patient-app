@@ -21,6 +21,7 @@ export class RecettesPage {
     recipes;
     save;
     patient: any;
+    image: any;
     user;
     page = 0;
     maximumPages = 4;
@@ -60,12 +61,18 @@ export class RecettesPage {
         if (this.page === this.maximumPages) {
           infiniteScroll.enable(false);
         }
-    
-      }
+    }
 
     getAllRecipesNames(infiniteScroll?) {
         this.patientCtrl.getAllRecipesNames(this.offset).subscribe(
             (recipes) => {
+                console.log(recipes);
+                recipes.forEach(value => {
+                    if (value.image && value.image.data) {
+                        const imageData = value.image.data;
+                        value.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));;
+                    }
+                });
                 this.offset += 3;
                 if (this.recipes)
                     Array.prototype.push.apply(this.recipes, recipes);
