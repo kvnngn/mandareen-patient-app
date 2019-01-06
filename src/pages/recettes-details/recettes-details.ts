@@ -26,7 +26,7 @@ export class RecettesDetailsPage {
       ingredients: "",
       description: "",
       name: "",
-      img_path: "",
+      image: null,
       id: -1,
       nb_cal: 0
     }
@@ -40,11 +40,11 @@ export class RecettesDetailsPage {
 	getRecipeDetail(id) {
         this.patientCtrl.getRecipeDetail(this.id).subscribe(
             (recipeDetail) => {
-                if (recipeDetail.image && recipeDetail.image.data) {
-                  const imageData = recipeDetail.image.data;
-                  recipeDetail.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));
-                }
                 this.recipeDetail = recipeDetail;
+                if (this.recipeDetail.image && this.recipeDetail.image.data) {
+                  const imageData = this.recipeDetail.image.data;
+                  this.recipeDetail.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));
+                }
                 this.recipeDetail.ingredients = recipeDetail['ingredients'].replace(/;/g, '\n');
                 this.recipeDetail.description = recipeDetail['description'].replace(/;ÉTAPE/g, ";;ÉTAPE").replace(/;/g, '\n');
                 this.canRender = true;

@@ -18,7 +18,7 @@ import { RecettesDetailsPage } from '../recettes-details/recettes-details';
 export class RecettesPage {
 
     offset = 0;
-    recipes;
+    recipes: any;
     save;
     patient: any;
     image: any;
@@ -66,21 +66,22 @@ export class RecettesPage {
     getAllRecipesNames(infiniteScroll?) {
         this.patientCtrl.getAllRecipesNames(this.offset).subscribe(
             (recipes) => {
-                console.log(recipes);
-                recipes.forEach(value => {
-                    if (value.image && value.image.data) {
-                        const imageData = value.image.data;
-                        value.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));;
+                if (Array.isArray(recipes)) {
+                    for (var value of recipes) {
+                        if (value.image && value.image.data) {
+                            const imageData = value.image.data;
+                            value.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));;
+                        }
+                    };
+                    this.offset += 3;
+                    if (this.recipes)
+                        Array.prototype.push.apply(this.recipes, recipes);
+                    else
+                        this.recipes = recipes;
+                    this.save = this.recipes;
+                    if (infiniteScroll) {
+                        infiniteScroll.complete();
                     }
-                });
-                this.offset += 3;
-                if (this.recipes)
-                    Array.prototype.push.apply(this.recipes, recipes);
-                else
-                    this.recipes = recipes;
-                this.save = this.recipes;
-                if (infiniteScroll) {
-                    infiniteScroll.complete();
                 }
             },
             (err) => {return console.log(err);}
