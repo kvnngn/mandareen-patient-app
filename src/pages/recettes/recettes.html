@@ -14,7 +14,9 @@
 
 
 <ion-content padding>
-  <ion-searchbar placeholder="Filter Items with Cancel" [showCancelButton]="shouldShowCancel" color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
+  <div class="fixbar">
+    <ion-searchbar id="researchBar" placeholder="Filter Items with Cancel" [showCancelButton]="shouldShowCancel" color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
+  </div>
     <ion-list *ngFor="let recipe of recipes" class="myList">
           <button (click)="SelectClicked(recipe, $event)">
             <ion-card class="myCard">

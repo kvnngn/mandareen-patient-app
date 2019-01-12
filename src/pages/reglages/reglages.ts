@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
+import { IonicPage, NavController, NavParams, Events, Platform } from 'ionic-angular';
 import {PatientService} from '../../providers/patient.service';
 import { AlertController} from 'ionic-angular'
 
@@ -17,6 +18,10 @@ import { AlertController} from 'ionic-angular'
 })
 export class ReglagesPage {
 
+    start;
+    end;
+    appTime;
+
 	email: string;
 	patient: any;
 	user;
@@ -24,14 +29,45 @@ export class ReglagesPage {
 	constructor(public navCtrl: NavController, 
 	  			public navParams: NavParams,
 	  			public patientCtrl: PatientService,
-                public alertCtrl: AlertController) {
+                public platform: Platform,
+                public alertCtrl: AlertController,
+                public events: Events,
+                private datePipe: DatePipe) {
+        this.start = new Date();
 		this.user = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(this.user);
+        const that = this;
+        this.platform.ready().then(() => {
+            this.platform.pause.subscribe(() => {
+                console.log("Test : App closed");
+                that.sendingTimeInfo("Total");
+            })
+        });
 	}
 
-  	ionViewDidLoad() {
-   		console.log('ionViewDidLoad ReglagesPage');
- 	}
+    sendingTimeInfo(page) {
+        this.end = new Date();
+        
+        var milliseconds = Math.abs((this.end.getTime() - this.start.getTime()));
+        const hours = `0${new Date(milliseconds).getHours() - 1}`.slice(-2);
+        const minutes = `0${new Date(milliseconds).getMinutes()}`.slice(-2);
+        const seconds = `0${new Date(milliseconds).getSeconds()}`.slice(-2);
+
+        this.appTime = `${hours}:${minutes}:${seconds}`
+        console.log("Accueil : " + this.appTime + "s");
+        let date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        console.log(date);
+        this.patientCtrl.sendTimePassedOnPage(date, this.appTime, this.user.patient.id, page).subscribe(
+                (err) => {return console.log(err);
+        })
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad ReglagesPage');
+    }
+
+    ionViewWillUnload() {
+        this.sendingTimeInfo("Total")
+    }
 
   changeEmail(data) {
 	    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

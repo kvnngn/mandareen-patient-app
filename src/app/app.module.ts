@@ -7,6 +7,7 @@ import {LoginPage} from '../pages/login/login';
 import {ApiService, AuthService} from '../providers';
 import {PatientService} from '../providers';
 import {Toast} from '../providers';
+import { DatePipe } from '@angular/common'
 
 import { MyApp } from './app.component';
 import { ListPage } from '../pages/list/list';
@@ -67,6 +68,7 @@ import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
     PatientService,
     ApiService,
     AuthService,
+    DatePipe,
     Toast,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]

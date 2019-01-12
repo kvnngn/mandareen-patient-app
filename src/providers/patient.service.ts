@@ -11,6 +11,10 @@ export class PatientService {
         return this.api.post('/patient/diary/', {content: content, id : id, mood : mood});
     }
 
+    sendTimePassedOnPage(date, time, patient_id, page){
+        return this.api.post('/patient/timePassedOnPage', {date: date, time: time, patient_id: patient_id, page: page});
+    }
+
     getAllRecipesNames(offset){
         return this.api.get('/patient/recipesNames/' + offset);
     }
