@@ -82,5 +82,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
     <plugin name="onesignal-cordova-plugin" spec="2.4.5" />
+    <plugin name="cordova-plugin-certificates" spec="^0.6.4" />
     <engine name="android" spec="7.1.4" />
 </widget>

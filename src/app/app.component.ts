@@ -15,6 +15,8 @@ import {ReglagesPage} from '../pages/reglages/reglages';
 import {OneSignal, OSNotificationPayload} from '@ionic-native/onesignal';
 import {oneSignalAppId, sender_id} from '../../config/config';
 
+declare let cordova: any;
+
 @Component({
     templateUrl: 'app.html'
 })
@@ -49,11 +51,10 @@ export class MyApp {
 
     initializeApp() {
         this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
             if (this.isCordovaAvailable()) {
+                cordova.plugins.certificates.trustUnsecureCerts(true);
                 this.oneSignal.startInit(oneSignalAppId, sender_id);
                 this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
                 this.oneSignal.handleNotificationReceived().subscribe(data => this.onPushReceived(data.payload));
