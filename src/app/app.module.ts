@@ -4,9 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import {LoginPage} from '../pages/login/login';
-import {ApiService, AuthService} from '../providers';
-import {PatientService} from '../providers';
-import {Toast} from '../providers';
 import { DatePipe } from '@angular/common'
 
 import { MyApp } from './app.component';
@@ -25,6 +22,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { ReglagesPage } from '../pages/reglages/reglages';
 
 import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
+import {OneSignal} from "@ionic-native/onesignal";
+import {ApiService, AuthService, PatientService, Toast} from "../providers";
 
 @NgModule({
   declarations: [
@@ -70,7 +69,8 @@ import { IonicAudioModule, defaultAudioProviderFactory } from 'ionic-audio';
     AuthService,
     DatePipe,
     Toast,
-      {provide: ErrorHandler, useClass: IonicErrorHandler},
+    OneSignal,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}

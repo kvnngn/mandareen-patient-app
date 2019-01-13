@@ -11,7 +11,11 @@ import {MusiquePage} from '../pages/musique/musique';
 import {JeuxPage} from '../pages/jeux/jeux';
 import {ContactPage} from '../pages/contact/contact';
 import {ReglagesPage} from '../pages/reglages/reglages';
-import {AuthService, Toast} from '../providers';
+import {OneSignal, OSNotificationPayload} from '@ionic-native/onesignal';
+import {oneSignalAppId, sender_id} from '../../config/config';
+import {AuthService, Toast} from "../providers";
+
+declare let cordova: any;
 
 @Component({
     templateUrl: 'app.html'
@@ -28,7 +32,8 @@ export class MyApp {
                 public splashScreen: SplashScreen,
                 public appCtrl: App,
                 public auth: AuthService,
-                private toastCtrl: Toast) {
+                private toastCtrl: Toast,
+                private oneSignal: OneSignal) {
         this.initializeApp();
 
         // if (localStorage.getItem('currentUser')) {this.rootPage = 'AccueilPage';}
@@ -45,15 +50,30 @@ export class MyApp {
             {title: 'Réglages', component: ReglagesPage}
         ];
 
-    }
+  }
 
     initializeApp() {
         this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
+            if (this.isCordovaAvailable()) {
+                cordova.plugins.certificates.trustUnsecureCerts(true);
+                this.oneSignal.startInit(oneSignalAppId, sender_id);
+                this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+                this.oneSignal.handleNotificationReceived().subscribe(data => this.onPushReceived(data.payload));
+                this.oneSignal.handleNotificationOpened()
+                .subscribe(data => this.onPushOpened(data.notification.payload));
+                this.oneSignal.endInit();
+            }
         });
+    }
+
+    private onPushReceived(payload: OSNotificationPayload) {
+        alert('Push recevied:' + payload.body);
+    }
+
+    private onPushOpened(payload: OSNotificationPayload) {
+        alert('Push opened: ' + payload.body);
     }
 
     openPage(page) {
@@ -70,4 +90,12 @@ export class MyApp {
             'top'
         );
     }
+
+    private isCordovaAvailable = () => {
+        if (!(<any>window).cordova) {
+            alert('This is a native feature. Please use a device');
+            return false;
+        }
+        return true;
+    };
 }
