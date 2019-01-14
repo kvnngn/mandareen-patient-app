@@ -37,6 +37,7 @@ export class MyApp {
                 public appCtrl: App,
                 public auth: AuthService,
                 private toastCtrl: Toast,
+                private authenticationService: AuthService,
                 private oneSignal: OneSignal) {
         this.initializeApp();
 
@@ -54,7 +55,13 @@ export class MyApp {
             {title: 'Réglages', component: ReglagesPage}
         ];
 
-  }
+    }
+
+    static isAuthenticated() {
+        if (window.localStorage.getItem('userData')) {
+            return true;
+        }
+    }
 
     initializeApp() {
         this.platform.ready().then(() => {
@@ -67,20 +74,23 @@ export class MyApp {
 
                 this.oneSignal.setSubscription(true);
                 this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
-                this.oneSignal.handleNotificationReceived().subscribe(data => this.onPushReceived(data.payload));
+
                 this.oneSignal.handleNotificationOpened()
-                .subscribe(data => this.onPushOpened(data.notification.payload));
+                    .subscribe((data) => {
+                        if (this.auth.isAuthenticated()) {
+                            const notification = data['notification'];
+                            const payload = notification.payload;
+                            console.log(payload);
+                        } else {
+                            this.appCtrl.getRootNav().setRoot(LoginPage);
+                        }
+                    });
                 this.oneSignal.endInit();
             }
+            if (this.authenticationService.isAuthenticated()) {
+                this.appCtrl.getRootNav().setRoot(AccueilPage);
+            }
         });
-    }
-
-    private onPushReceived(payload: OSNotificationPayload) {
-        alert('Push recevied:' + payload.body);
-    }
-
-    private onPushOpened(payload: OSNotificationPayload) {
-        alert('Push opened: ' + payload.body);
     }
 
     openPage(page) {

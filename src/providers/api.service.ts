@@ -35,7 +35,7 @@ export class ApiService {
     protected static getRequestOptionArgs() {
         return {
             headers: new HttpHeaders({
-                'Authorization': 'JWT ' + JSON.parse(window.localStorage.getItem('token')),
+                'Authorization': 'JWT ' + localStorage.getItem('token'),
                 'Content-Type': 'application/json'
             })
         };

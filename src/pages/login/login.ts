@@ -46,8 +46,12 @@ export class LoginPage {
                         false,
                         'top'
                     );
+                } else {
+                    this.toastCtrl.create('msg',
+                        false,
+                        'top'
+                    );
                 }
-                return console.log(err);
             }
         );
     }
