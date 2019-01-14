@@ -13,7 +13,9 @@ import {ContactPage} from '../pages/contact/contact';
 import {ReglagesPage} from '../pages/reglages/reglages';
 import {OneSignal, OSNotificationPayload} from '@ionic-native/onesignal';
 import {oneSignalAppId, sender_id} from '../../config/config';
-import {AuthService, Toast} from "../providers";
+import {AuthService, Toast, UserService} from "../providers";
+import {Device} from '@ionic-native/device';
+import {environment} from "../environments/environment";
 
 declare let cordova: any;
 
@@ -30,6 +32,8 @@ export class MyApp {
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
+                private device: Device,
+                private userService: UserService,
                 public appCtrl: App,
                 public auth: AuthService,
                 private toastCtrl: Toast,
@@ -59,6 +63,9 @@ export class MyApp {
             if (this.isCordovaAvailable()) {
                 cordova.plugins.certificates.trustUnsecureCerts(true);
                 this.oneSignal.startInit(oneSignalAppId, sender_id);
+                this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+
+                this.oneSignal.setSubscription(true);
                 this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
                 this.oneSignal.handleNotificationReceived().subscribe(data => this.onPushReceived(data.payload));
                 this.oneSignal.handleNotificationOpened()

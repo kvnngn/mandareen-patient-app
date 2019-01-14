@@ -1,13 +1,7 @@
-import {EnvInterface} from './env';
-
-export const ENV: EnvInterface = {
-
-    production: true,
+export const environment = {
+    production: false,
     isDebugMode: false,
-     origin: 'https://192.168.0.47:1234',
-    //origin: 'https://192.168.0.47:1234',
-    version: '0.0.1'
-
+    origin: 'https://192.168.0.47:1234',
+    //origin: 'https://localhost:1234',
+    version: '1.0.0'
 };
-
-// origin: 'http://109.11.149.28:1234'

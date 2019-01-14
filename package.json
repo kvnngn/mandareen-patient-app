@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "5.2.10",
     "@ionic-native/android-permissions": "^4.15.0",
     "@ionic-native/core": "4.7.0",
+    "@ionic-native/device": "^4.19.0",
     "@ionic-native/file": "^4.15.0",
     "@ionic-native/file-path": "^4.15.0",
     "@ionic-native/onesignal": "^4.19.0",

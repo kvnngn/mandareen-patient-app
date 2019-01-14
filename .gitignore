@@ -8,7 +8,7 @@ npm-debug.log*
 coverage/
 dist/
 node_modules/
-/src/environments/environment.dev/
+/src/environments/environment.prod/
 /src/environments/environment/
 
 tmp/
