@@ -1,0 +1,66 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title *ngIf="notif.additionalData.type == 'calorie'">Votre dernier repas</ion-title>
+        <ion-title *ngIf="notif.additionalData.type == 'sport'" >Votre dernière activité sportive</ion-title>
+        <ion-title *ngIf="notif.additionalData.type == 'sommeil'">Votre dernière nuit</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <img *ngIf="notif.additionalData.type == 'calorie'" src="assets/imgs/calorie.jpeg"/>
+        <img *ngIf="notif.additionalData.type == 'sport'" src="assets/imgs/sport.jpg"/>
+        <img *ngIf="notif.additionalData.type == 'sommeil'" src="assets/imgs/sommeil.jpeg"/>
+
+        <ion-card-content>
+            <ion-card-title>
+               {{notif.title}}
+            </ion-card-title>
+            <p>
+                {{notif.body}}
+            </p>
+        </ion-card-content>
+
+        <ion-list *ngIf="notif.additionalData.type == 'sommeil'">
+            <ion-item>
+                <ion-label floating>Nombre d'heure appromixatif :</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Comment a été votre nuit ?</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="notif.additionalData.type == 'calorie'">
+            <ion-item>
+                <ion-label floating>Plat(s) consommé(s) :</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Si possible, le nombre de calories :</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="notif.additionalData.type == 'sport'">
+            <ion-item>
+                <ion-label floating>Quel de sport avez-vous pratiqué récemment ? :</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label floating>Quelle était la durée approximatif :</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+
+        <button ion-button block outline (click)="diarySubmit()">Envoyer</button>
+    </ion-card>
+
+</ion-content>

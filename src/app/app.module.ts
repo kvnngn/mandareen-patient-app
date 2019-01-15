@@ -25,6 +25,7 @@ import {IonicAudioModule, defaultAudioProviderFactory} from 'ionic-audio';
 import {OneSignal} from "@ionic-native/onesignal";
 import {ApiService, AuthService, PatientService, Toast, UserService} from "../providers";
 import {Device} from "@ionic-native/device";
+import {HandleNotificationPage} from "../pages/handleNotification/HandleNotificationPage";
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import {Device} from "@ionic-native/device";
         MusiquePage,
         JeuxPage,
         ContactPage,
-        ReglagesPage
+        ReglagesPage,
+        HandleNotificationPage
     ],
     imports: [
         BrowserModule,
@@ -60,7 +62,8 @@ import {Device} from "@ionic-native/device";
         MusiquePage,
         JeuxPage,
         ContactPage,
-        ReglagesPage
+        ReglagesPage,
+        HandleNotificationPage
     ],
     providers: [
         StatusBar,

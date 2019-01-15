@@ -16,6 +16,7 @@ import {oneSignalAppId, sender_id} from '../../config/config';
 import {AuthService, Toast, UserService} from "../providers";
 import {Device} from '@ionic-native/device';
 import {environment} from "../environments/environment";
+import {HandleNotificationPage} from "../pages/handleNotification/HandleNotificationPage";
 
 declare let cordova: any;
 
@@ -81,6 +82,9 @@ export class MyApp {
                             const notification = data['notification'];
                             const payload = notification.payload;
                             console.log(payload);
+                            if (payload.additionalData) {
+                                this.appCtrl.getRootNav().setRoot(HandleNotificationPage, {notif: payload});
+                            }
                         } else {
                             this.appCtrl.getRootNav().setRoot(LoginPage);
                         }
