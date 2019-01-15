@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import {AuthService, Toast} from '../../providers';
+import {AuthService, Toast, UserService} from '../../providers';
 import {AccueilPage} from '../accueil/accueil';
+import {OneSignal} from "@ionic-native/onesignal";
+import {Device} from "@ionic-native/device";
+import {environment} from "../../environments/environment";
 
 @Component({
     selector: 'page-home',
@@ -16,11 +19,16 @@ export class LoginPage {
 
     constructor(public navCtrl: NavController,
                 public auth: AuthService,
-                private toastCtrl: Toast) {}
+                private oneSignal: OneSignal,
+                private device: Device,
+                private userService: UserService,
+                private toastCtrl: Toast) {
+    }
 
     login() {
         this.auth.signin(this.username, this.password).subscribe(
             (patientFound) => {
+                this.storeToken(patientFound['patient']['id']);
                 localStorage.setItem('currentUser', JSON.stringify(patientFound));
                 this.navCtrl.setRoot(AccueilPage);
             },
@@ -38,9 +46,30 @@ export class LoginPage {
                         false,
                         'top'
                     );
+                } else {
+                    this.toastCtrl.create('msg',
+                        false,
+                        'top'
+                    );
                 }
-                return console.log(err);
             }
         );
+    }
+
+    storeToken(id) {
+        this.oneSignal.getIds()
+            .then((ids) => {
+                const device = {
+                    uuid: ids['userId'],
+                    token: ids['pushToken'],
+                    platform: this.device.platform,
+                    version: this.device.version,
+                    model: this.device.model,
+                    manufacturer: this.device.manufacturer,
+                    app_version: environment.version,
+                    patient_id: id
+                };
+                return this.userService.storeToken(device).subscribe();
+            });
     }
 }

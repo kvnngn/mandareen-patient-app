@@ -1,9 +1,6 @@
-import {EnvInterface} from './env';
-
-export const ENV: EnvInterface = {
-
+export const environment = {
     production: false,
-    isDebugMode: true,
-    origin: 'http://localhost:1234',
-    version: '0.0.1'
+    isDebugMode: false,
+    origin: 'https://192.168.0.47:1234',
+    version: '1.0.0'
 };

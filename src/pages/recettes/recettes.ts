@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DatePipe } from '@angular/common';
+import { IonicPage, NavController, NavParams, Events, Platform } from 'ionic-angular';
 import {PatientService} from '../../providers/patient.service';
 import { RecettesDetailsPage } from '../recettes-details/recettes-details';
 
@@ -17,24 +18,62 @@ import { RecettesDetailsPage } from '../recettes-details/recettes-details';
 })
 export class RecettesPage {
 
+    start;
+    end;
+    timeOnPage;
+
     offset = 0;
-    recipes;
+    recipes: any;
     save;
     patient: any;
+    image: any;
     user;
     page = 0;
     maximumPages = 4;
 
 	constructor(public navCtrl: NavController,
                 public patientCtrl: PatientService,
-                public navParams: NavParams) {
+                public navParams: NavParams,
+                public platform: Platform,
+                private datePipe: DatePipe,
+                public events: Events) {
+        this.start = new Date();
         this.user = JSON.parse(localStorage.getItem('currentUser'));
         this.getAllRecipesNames(this.offset);
+        const that = this;
+        this.platform.ready().then(() => {
+            this.platform.pause.subscribe(() => {
+                console.log("Test : App closed");
+                that.sendingTimeInfo("Total");
+            })
+        });
 	}
 
-	ionViewDidLoad() {
-	    console.log('ionViewDidLoad RecettesPage');
-	}
+    sendingTimeInfo(page) {
+        this.end = new Date();
+        
+        var milliseconds = Math.abs((this.end.getTime() - this.start.getTime()));
+        const hours = `0${new Date(milliseconds).getHours() - 1}`.slice(-2);
+        const minutes = `0${new Date(milliseconds).getMinutes()}`.slice(-2);
+        const seconds = `0${new Date(milliseconds).getSeconds()}`.slice(-2);
+
+        this.timeOnPage = `${hours}:${minutes}:${seconds}`
+        console.log("Recipes : " + this.timeOnPage + "s");
+        let date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        console.log(date);
+        this.patientCtrl.sendTimePassedOnPage(date, this.timeOnPage, this.user.patient.id, page).subscribe(
+                (err) => {return console.log(err);}
+        );
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad RecettesPage');
+    }
+
+    ionViewWillUnload() {
+        this.sendingTimeInfo("Total");
+        this.sendingTimeInfo("Recipes");
+    }
 
 	SelectClicked(recipe, myEvent) {
 		this.navCtrl.push(RecettesDetailsPage, {
@@ -60,20 +99,27 @@ export class RecettesPage {
         if (this.page === this.maximumPages) {
           infiniteScroll.enable(false);
         }
-    
-      }
+    }
 
     getAllRecipesNames(infiniteScroll?) {
         this.patientCtrl.getAllRecipesNames(this.offset).subscribe(
             (recipes) => {
-                this.offset += 3;
-                if (this.recipes)
-                    Array.prototype.push.apply(this.recipes, recipes);
-                else
-                    this.recipes = recipes;
-                this.save = this.recipes;
-                if (infiniteScroll) {
-                    infiniteScroll.complete();
+                if (Array.isArray(recipes)) {
+                    for (var value of recipes) {
+                        if (value.image && value.image.data) {
+                            const imageData = value.image.data;
+                            value.image = "data:image/jpg;base64,"+ btoa(String.fromCharCode.apply(null, imageData));;
+                        }
+                    };
+                    this.offset += 3;
+                    if (this.recipes)
+                        Array.prototype.push.apply(this.recipes, recipes);
+                    else
+                        this.recipes = recipes;
+                    this.save = this.recipes;
+                    if (infiniteScroll) {
+                        infiniteScroll.complete();
+                    }
                 }
             },
             (err) => {return console.log(err);}

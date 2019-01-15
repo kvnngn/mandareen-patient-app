@@ -1,6 +1,6 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {ENV} from '@env';
+import {environment} from "../environments/environment";
 
 @Injectable()
 
@@ -29,13 +29,13 @@ export class ApiService {
     }
 
     private static updateUrl(req: string) {
-        return ENV.origin + req;
+        return environment.origin + req;
     }
 
     protected static getRequestOptionArgs() {
         return {
             headers: new HttpHeaders({
-                'Authorization': 'JWT ' + JSON.parse(window.localStorage.getItem('token')),
+                'Authorization': 'JWT ' + localStorage.getItem('token'),
                 'Content-Type': 'application/json'
             })
         };

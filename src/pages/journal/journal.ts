@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import { DatePipe } from '@angular/common';
+import {IonicPage, NavController, Events, Platform} from 'ionic-angular';
 import {PatientService} from '../../providers/patient.service';
 import {Toast} from '../../providers';
 import {AccueilPage} from "../accueil/accueil";
@@ -19,6 +20,10 @@ import {ModifierJournalPage} from "../modifier-journal/modifier-journal";
 })
 export class JournalPage {
 
+    start;
+    end;
+    timeOnPage;
+
     content: string;
     mood: number;
     patient: any;
@@ -27,13 +32,46 @@ export class JournalPage {
 
     constructor(public navCtrl: NavController,
                 public patientCtrl: PatientService,
-                private toastCtrl: Toast) {
+                private toastCtrl: Toast,
+                public platform: Platform,
+                private datePipe: DatePipe,
+                public events: Events) {
+        this.start = new Date();
         this.user = JSON.parse(localStorage.getItem('currentUser'));
         this.getPatientDiaries();
+        const that = this;
+        this.platform.ready().then(() => {
+            this.platform.pause.subscribe(() => {
+                console.log("Test : App closed");
+                that.sendingTimeInfo("Total");
+            })
+        });
+    }
+
+    sendingTimeInfo(page) {
+        this.end = new Date();
+        
+        var milliseconds = Math.abs((this.end.getTime() - this.start.getTime()));
+        const hours = `0${new Date(milliseconds).getHours() - 1}`.slice(-2);
+        const minutes = `0${new Date(milliseconds).getMinutes()}`.slice(-2);
+        const seconds = `0${new Date(milliseconds).getSeconds()}`.slice(-2);
+
+        this.timeOnPage = `${hours}:${minutes}:${seconds}`
+        console.log("Journal : " + this.timeOnPage + "s");
+        let date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        console.log(date);
+        this.patientCtrl.sendTimePassedOnPage(date, this.timeOnPage, this.user.patient.id, page).subscribe(
+                (err) => {return console.log(err);}
+        );
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad JournalPage');
+    }
+
+    ionViewWillUnload() {
+        this.sendingTimeInfo("Diary");
+        this.sendingTimeInfo("Total");
     }
 
     diaryUpdatePage(id, content, date) {

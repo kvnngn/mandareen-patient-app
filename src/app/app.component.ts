@@ -11,7 +11,14 @@ import {MusiquePage} from '../pages/musique/musique';
 import {JeuxPage} from '../pages/jeux/jeux';
 import {ContactPage} from '../pages/contact/contact';
 import {ReglagesPage} from '../pages/reglages/reglages';
-import {AuthService, Toast} from '../providers';
+import {OneSignal, OSNotificationPayload} from '@ionic-native/onesignal';
+import {oneSignalAppId, sender_id} from '../../config/config';
+import {AuthService, Toast, UserService} from "../providers";
+import {Device} from '@ionic-native/device';
+import {environment} from "../environments/environment";
+import {HandleNotificationPage} from "../pages/handleNotification/HandleNotificationPage";
+
+declare let cordova: any;
 
 @Component({
     templateUrl: 'app.html'
@@ -26,9 +33,13 @@ export class MyApp {
     constructor(public platform: Platform,
                 public statusBar: StatusBar,
                 public splashScreen: SplashScreen,
+                private device: Device,
+                private userService: UserService,
                 public appCtrl: App,
                 public auth: AuthService,
-                private toastCtrl: Toast) {
+                private toastCtrl: Toast,
+                private authenticationService: AuthService,
+                private oneSignal: OneSignal) {
         this.initializeApp();
 
         // if (localStorage.getItem('currentUser')) {this.rootPage = 'AccueilPage';}
@@ -47,12 +58,42 @@ export class MyApp {
 
     }
 
+    static isAuthenticated() {
+        if (window.localStorage.getItem('userData')) {
+            return true;
+        }
+    }
+
     initializeApp() {
         this.platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
             this.statusBar.styleDefault();
             this.splashScreen.hide();
+            if (this.isCordovaAvailable()) {
+                cordova.plugins.certificates.trustUnsecureCerts(true);
+                this.oneSignal.startInit(oneSignalAppId, sender_id);
+                this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+
+                this.oneSignal.setSubscription(true);
+                this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+
+                this.oneSignal.handleNotificationOpened()
+                    .subscribe((data) => {
+                        if (this.auth.isAuthenticated()) {
+                            const notification = data['notification'];
+                            const payload = notification.payload;
+                            console.log(payload);
+                            if (payload.additionalData) {
+                                this.appCtrl.getRootNav().setRoot(HandleNotificationPage, {notif: payload});
+                            }
+                        } else {
+                            this.appCtrl.getRootNav().setRoot(LoginPage);
+                        }
+                    });
+                this.oneSignal.endInit();
+            }
+            if (this.authenticationService.isAuthenticated()) {
+                this.appCtrl.getRootNav().setRoot(AccueilPage);
+            }
         });
     }
 
@@ -70,4 +111,12 @@ export class MyApp {
             'top'
         );
     }
+
+    private isCordovaAvailable = () => {
+        if (!(<any>window).cordova) {
+            alert('This is a native feature. Please use a device');
+            return false;
+        }
+        return true;
+    };
 }

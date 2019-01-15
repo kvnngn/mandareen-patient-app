@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
+import { DatePipe } from '@angular/common';
+import {IonicPage, NavController, NavParams, Platform, Events} from 'ionic-angular';
 import { File } from '@ionic-native/file';
+import {PatientService} from '../../providers/patient.service';
 import { FilePath } from '@ionic-native/file-path';
 import { AndroidPermissions } from "@ionic-native/android-permissions";
 import { AlertController } from "ionic-angular";
@@ -21,6 +23,14 @@ import { AudioProvider } from "ionic-audio";
 })
 
 export class MusiquePage {
+    
+    start;
+    end;
+    appTime;
+
+    patient: any;
+    user;
+
     musicList = [];
     fileList = [];
     tracksList = [];
@@ -30,8 +40,45 @@ export class MusiquePage {
     constructor(public navCtrl: NavController, public navParams: NavParams,
                 public file: File, public platform: Platform, public filePath: FilePath,
                 public permissions: AndroidPermissions, private alertCtrl: AlertController,
-                private audioProvider: AudioProvider) {
+                private audioProvider: AudioProvider,
+                public patientCtrl: PatientService,
+                public events: Events,
+                private datePipe: DatePipe) {
+        this.start = new Date();
+        this.user = JSON.parse(localStorage.getItem('currentUser'));
+        const that = this;
+        this.platform.ready().then(() => {
+            this.platform.pause.subscribe(() => {
+                console.log("Test : App closed");
+                that.sendingTimeInfo("Total");
+            })
+        });
+    }
 
+    sendingTimeInfo(page) {
+        this.end = new Date();
+        
+        var milliseconds = Math.abs((this.end.getTime() - this.start.getTime()));
+        const hours = `0${new Date(milliseconds).getHours() - 1}`.slice(-2);
+        const minutes = `0${new Date(milliseconds).getMinutes()}`.slice(-2);
+        const seconds = `0${new Date(milliseconds).getSeconds()}`.slice(-2);
+
+        this.appTime = `${hours}:${minutes}:${seconds}`
+        console.log("Accueil : " + this.appTime + "s");
+        let date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+        console.log(date);
+        this.patientCtrl.sendTimePassedOnPage(date, this.appTime, this.user.patient.id, page).subscribe(
+                (err) => {return console.log(err);
+        })
+    }
+
+    ionViewWillUnload() {
+        this.sendingTimeInfo("Total")
+    }
+
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad MusiquePage');
     }
 
     public getMusicList1() {
@@ -181,10 +228,6 @@ export class MusiquePage {
 
     private alertNoMusic() {
         this.alertLaunch('Musique', 'Aucune Musique à jouer', ['Fermer'])
-    }
-
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad MusiquePage');
     }
 
 }

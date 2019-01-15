@@ -18,7 +18,7 @@
             <div *ngIf="canRender" class="recipeContent">
               <div>
                 <h1>{{ recipeDetail.name }}</h1>
-                <img class="recipeImage" src="assets/imgs/{{recipeDetail.img_path}}">
+                <img class="recipeImage" [src]="recipeDetail.image">
                 <p>Nombre de calories : {{ recipeDetail.nb_cal }}</p>
               </div>
               <div class="ingredientsContent">
