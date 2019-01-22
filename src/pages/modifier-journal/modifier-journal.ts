@@ -10,7 +10,7 @@ import {JournalPage} from "../journal/journal";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
     selector: 'modifier-journal.html',
     templateUrl: 'modifier-journal.html'

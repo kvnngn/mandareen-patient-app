@@ -9,7 +9,7 @@ import {PatientService} from '../../providers/patient.service';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-recettes-details',
   templateUrl: 'recettes-details.html',

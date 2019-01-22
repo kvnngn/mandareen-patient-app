@@ -11,7 +11,7 @@ import { AlertController} from 'ionic-angular'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-reglages',
   templateUrl: 'reglages.html',

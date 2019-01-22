@@ -13,7 +13,7 @@ import {ModifierJournalPage} from "../modifier-journal/modifier-journal";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
     selector: 'HandleNotificationPage',
     templateUrl: 'HandleNotificationPage.html'

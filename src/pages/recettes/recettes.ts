@@ -11,7 +11,7 @@ import { RecettesDetailsPage } from '../recettes-details/recettes-details';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-recettes',
   templateUrl: 'recettes.html',
