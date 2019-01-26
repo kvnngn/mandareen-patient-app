@@ -21,7 +21,7 @@ declare var cordova: any;
 @Component({
   selector: 'page-musique',
   templateUrl: 'musique.html',
-    providers: [File, FilePath, AndroidPermissions, Storage],
+    providers: [File, FilePath, AndroidPermissions],
 })
 
 export class MusiquePage {
@@ -58,32 +58,42 @@ export class MusiquePage {
             clientId: "902d20d5fa32455a9103d84be88363aa",
             redirectUrl: "devdacticspotify://callback",
             scopes: ["streaming", "playlist-read-private", "user-read-email", "user-read-private"],
-            tokenExchangeUrl: "https://spotifyoauthserver.herokuapp.com/exchange",
-            tokenRefreshUrl: "https://spotifyoauthserver.herokuapp.com/refresh",
+            tokenExchangeUrl: "https://mandareen.herokuapp.com/exchange",
+            tokenRefreshUrl: "https://mandareen.herokuapp.com/refresh",
         };
 
         if (showLoading) {
             this.loading = this.loadingCtrl.create();
             this.loading.present();
         }
+        try {
 
-        cordova.plugins.spotifyAuth.authorize(config)
-            .then(({ accessToken, encryptedRefreshToken, expiresAt }) => {
-                if (this.loading) {
-                    this.loading.dismiss();
-                }
 
-                this.result = { access_token: accessToken, expires_in: expiresAt, refresh_token: encryptedRefreshToken };
-                this.loggedIn = true;
-                this.spotifyApi.setAccessToken(accessToken);
-                this.getUserPlaylists();
-                this.storage.set('logged_in', true);
-            }, err => {
-                console.error(err);
-                if (this.loading) {
-                    this.loading.dismiss();
-                }
-            });
+            cordova.plugins.sp1otifyAuth.authorize(config)
+                .then(({accessToken, encryptedRefreshToken, expiresAt}) => {
+                    if (this.loading) {
+                        this.loading.dismiss();
+                    }
+
+                    this.result = {
+                        access_token: accessToken,
+                        expires_in: expiresAt,
+                        refresh_token: encryptedRefreshToken
+                    };
+                    this.loggedIn = true;
+                    this.spotifyApi.setAccessToken(accessToken);
+                    this.getUserPlaylists();
+                    this.storage.set('logged_in', true);
+                }, err => {
+                    this.alertLaunch("Erreur", err, "Fermer");
+                    if (this.loading) {
+                        this.loading.dismiss();
+                    }
+                });
+        }
+        catch (e) {
+            this.alertLaunch("Erreur", e, "Fermer");
+        }
     }
 
     getUserPlaylists() {
