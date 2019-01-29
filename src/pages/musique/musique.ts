@@ -36,6 +36,7 @@ export class MusiquePage {
     tracksList = [];
     selectedTrack;
     isPlaying = false;
+    logged = false;
 
     constructor(public navCtrl: NavController, public navParams: NavParams,
                 public file: File, public platform: Platform, public filePath: FilePath,
@@ -73,12 +74,22 @@ export class MusiquePage {
     }
 
     ionViewWillUnload() {
-        this.sendingTimeInfo("Total")
+        this.sendingTimeInfo("Total");
     }
 
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad MusiquePage');
+    }
+
+    SpotifyAuth(){
+        this.patientCtrl.spotifyAuthorize().subscribe(
+            (data) => {
+                console.log(data);
+                this.logged = true;
+            },
+            (err) => {return console.log(err);}
+        );
     }
 
     public getMusicList1() {

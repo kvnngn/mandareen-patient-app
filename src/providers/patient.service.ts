@@ -27,6 +27,11 @@ export class PatientService {
         return this.api.get('/patient/diaries/' + id);
     }
 
+    spotifyAuthorize() {
+        console.log("taerace");
+        return this.api.get('/patient/spotifyAuthorize/');
+    }
+
     updatePatientDiary(content, id) {
         let data = {
             'id': id,

@@ -19,6 +19,13 @@ play
 -->
 
 <ion-content padding>
+
+  <div *ngIf="!logged">Login to Spotify</div>d
+  <ion-buttons>
+    <button ion-button round (click)="SpotifyAuth()" *ngIf="!logged">Login</button>
+    <button ion-button round (click)="logout()" *ngIf="logged">Logout</button>
+  </ion-buttons>
+
   <button ion-button round (click)="getMusicList1()"> Liste de musique </button>
   <br>
   <ion-list *ngFor="let music of musicList">
