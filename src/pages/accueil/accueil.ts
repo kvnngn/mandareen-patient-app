@@ -10,7 +10,6 @@ import {PatientService} from '../../providers/patient.service';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-accueil',
   templateUrl: 'accueil.html',

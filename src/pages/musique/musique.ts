@@ -15,7 +15,7 @@ import { AudioProvider } from "ionic-audio";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-musique',
   templateUrl: 'musique.html',

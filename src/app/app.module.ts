@@ -1,12 +1,11 @@
 import {HttpClientModule} from '@angular/common/http';
-import {HttpModule} from '@angular/http';
 import {BrowserModule} from '@angular/platform-browser';
 import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {LoginPage} from '../pages/login/login';
 import {DatePipe} from '@angular/common'
 
-import {MyApp} from './app.component';
+import {AppComponent} from './app.component';
 import {ListPage} from '../pages/list/list';
 
 import {StatusBar} from '@ionic-native/status-bar';
@@ -29,7 +28,7 @@ import {HandleNotificationPage} from "../pages/handleNotification/HandleNotifica
 
 @NgModule({
     declarations: [
-        MyApp,
+        AppComponent,
         LoginPage,
         ListPage,
         AccueilPage,
@@ -42,16 +41,17 @@ import {HandleNotificationPage} from "../pages/handleNotification/HandleNotifica
         ContactPage,
         ReglagesPage,
         HandleNotificationPage
+
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
-        IonicModule.forRoot(MyApp),
+        IonicModule.forRoot(AppComponent),
         IonicAudioModule.forRoot(defaultAudioProviderFactory),
     ],
     bootstrap: [IonicApp],
     entryComponents: [
-        MyApp,
+        AppComponent,
         LoginPage,
         ListPage,
         AccueilPage,
